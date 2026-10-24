@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VCategoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VCategory">
+            <id property="categoryId" column="category_id" />
+            <result property="parentId" column="parent_id" />
+            <result property="name" column="name" />
+            <result property="iconUrl" column="icon_url" />
+            <result property="imageUrl" column="image_url" />
+            <result property="sort" column="sort" />
+            <result property="status" column="status" />
+            <result property="createBy" column="create_by" />
+            <result property="createTime" column="create_time" />
+            <result property="updateBy" column="update_by" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        category_id,parent_id,name,icon_url,image_url,sort,
+        status,create_by,create_time,update_by,update_time
+    </sql>
+</mapper>

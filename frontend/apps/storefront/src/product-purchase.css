@@ -1,0 +1,25 @@
+.product-purchase { margin-block: 24px; }
+.purchase-variants { display: flex; flex-wrap: wrap; gap: 8px; max-height: 240px; overflow-y: auto; padding: 2px; }
+.purchase-variants button { min-height: 42px; padding: 10px 14px; border: 1px solid var(--line, #d5ddda); border-radius: 8px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+.purchase-variants button[aria-pressed="true"] { border-color: var(--accent-ink); background: var(--surface-cool); color: var(--accent-ink); }
+.purchase-variants button:hover:not(:disabled) { border-color: var(--accent-ink); }
+.purchase-variants button:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+.purchase-variants button:disabled { opacity: .5; cursor: not-allowed; }
+.purchase-quantity { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-block: 20px 10px; }
+.purchase-quantity input { width: 76px; padding: 9px; border: 1px solid #b5c4bf; border-radius: 6px; color: #243b38; background: #fff; font: inherit; }
+.purchase-quantity span, .purchase-store { font-size: 13px; color: var(--muted); }
+.purchase-notice { color: var(--accent-ink); line-height: 1.6; }
+.product-purchase .product-actions { flex-wrap: wrap; }
+.product-purchase fieldset { border: 0; padding: 0; margin: 22px 0 0; }
+.product-purchase legend { margin-bottom: 12px; font-size: 14px; }
+@media (max-width: 600px) { .product-purchase .product-actions .button { flex: 1; justify-content: center; } }
+.purchase-stepper{display:flex;align-items:center;border:1px solid #b5c4bf;border-radius:6px;overflow:hidden}
+.purchase-stepper button{display:grid;place-items:center;min-width:42px;min-height:42px;color:var(--ink)}
+.purchase-stepper button:disabled{opacity:.35;cursor:not-allowed}
+.purchase-stepper button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-3px}
+.purchase-stepper input{width:54px;min-height:42px;border:0;border-inline:1px solid var(--line);border-radius:0;text-align:center;appearance:textfield;-moz-appearance:textfield}
+.purchase-stepper input::-webkit-inner-spin-button,.purchase-stepper input::-webkit-outer-spin-button{appearance:none;margin:0}
+.purchase-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:13px}
+.purchase-notice a{display:inline-flex;align-items:center;gap:5px;text-decoration:underline;text-underline-offset:3px;min-height:40px}
+.purchase-spin{animation:purchase-spin .9s linear infinite}@keyframes purchase-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.purchase-spin{animation:none}}

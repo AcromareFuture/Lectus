@@ -1,0 +1,1 @@
+package com.lectus.api; public interface SessionUserResolver { Contracts.User authenticate(String token); }

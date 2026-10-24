@@ -1,0 +1,27 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${PORT:8080}
+spring:
+  application:
+    name: lectus-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 2000
+            response-timeout: 30s
+services:
+  identity: ${IDENTITY_URL:http://127.0.0.1:8082}
+  catalog: ${CATALOG_URL:http://127.0.0.1:8083}
+  trade: ${TRADE_URL:http://127.0.0.1:8084}
+  member: ${MEMBER_URL:http://127.0.0.1:8081}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true

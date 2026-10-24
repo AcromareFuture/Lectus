@@ -1,0 +1,29 @@
+{
+  "name": "lectus-frontend",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace=@lectus/storefront",
+    "dev:storefront": "npm run dev --workspace=@lectus/storefront",
+    "dev:merchant": "npm run dev --workspace=@lectus/merchant",
+    "dev:platform": "npm run dev --workspace=@lectus/platform",
+    "dev:legacy": "npm run dev:legacy --workspace=@lectus/storefront",
+    "build": "npm run build --workspaces --if-present",
+    "build:storefront": "npm run build --workspace=@lectus/storefront",
+    "build:merchant": "npm run build --workspace=@lectus/merchant",
+    "build:platform": "npm run build --workspace=@lectus/platform",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "preview": "npm run preview --workspace=@lectus/storefront",
+    "preview:merchant": "npm run preview --workspace=@lectus/merchant",
+    "preview:platform": "npm run preview --workspace=@lectus/platform"
+  }
+}

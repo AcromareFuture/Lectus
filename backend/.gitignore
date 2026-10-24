@@ -1,0 +1,9 @@
+target/
+data/
+.env
+
+**/target/
+**/data/
+.runtime/
+deploy/.env
+**/__pycache__/

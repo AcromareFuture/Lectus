@@ -1,0 +1,42 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${PORT:8083}
+spring:
+  application:
+    name: catalog-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/lectus_catalog}
+    username: ${DB_USER:lectus_catalog}
+    password: ${DB_PASSWORD}
+  flyway:
+    locations: classpath:db/migration
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      accept-float-as-int: false
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      connect-timeout: 500ms
+      timeout: 500ms
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    redis:
+      enabled: ${CATALOG_CACHE:false}
+lectus:
+  cors-origins: ${CORS_ORIGINS:http://127.0.0.1:4200,http://127.0.0.1:4206,http://localhost:4206}
+  session-hours: 168
+  seed-catalog: ${SEED_CATALOG:false}
+  catalog-cache: ${CATALOG_CACHE:false}
+  assets-origin: ${ASSETS_ORIGIN:http://127.0.0.1:19000/lectus-assets/}
+  identity-url: ${IDENTITY_URL:http://127.0.0.1:8082}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lectus · 多视角重建验证</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;color:#242820;background:#eff0ed;font:14px/1.7 system-ui,sans-serif}main{max-width:1140px;margin:auto;padding:26px 22px 50px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.brand{font-weight:850;font-size:24px;letter-spacing:-1px}.brand span{color:#9c4268}a{color:inherit;text-underline-offset:4px}.eyebrow{font-size:11px;letter-spacing:.16em;color:#77606c}h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.035em;line-height:1.25;margin:10px 0 14px}p{color:#60665c;max-width:780px;margin:10px 0}.comparison{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;margin:24px 0}.panel{background:#ffffffb8;border:1px solid #fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 30px #29342708}.label{display:flex;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid #26391b10;font-size:12px}.tag{color:#924063}.stage{height:390px;position:relative;overflow:hidden}.stage img,model-viewer{display:block;width:100%;height:100%;object-fit:contain}.stage img{padding:18px;mix-blend-mode:multiply}model-viewer{background:radial-gradient(ellipse at bottom,#e1e5dd,transparent 65%)}.controls,.modes{display:flex;gap:7px;flex-wrap:wrap;padding:13px 16px;justify-content:center}.modes{background:#f0f1ed;justify-content:flex-start}.modes button[aria-pressed=true]{background:#30372b;color:#fff;border-color:#30372b}button{font:inherit;color:inherit;cursor:pointer;border:1px solid #dce0d7;background:#ffffffb8;border-radius:10px;padding:9px 13px;min-height:42px;transition:transform .18s,background .18s}button:active{transform:scale(.96)}button:disabled{opacity:.4;cursor:wait}button:focus-visible{outline:2px solid #9c4268;outline-offset:3px}.photos{display:flex;gap:6px;flex-wrap:wrap;padding:13px 15px}.photos button{width:calc(33.33% - 4px);padding:5px}.photos img{display:block;width:100%;height:64px;object-fit:contain;mix-blend-mode:multiply}.photos button[aria-pressed=true]{border-color:#30372b;background:#e9ede4}.photos span{font-size:11px}.state{position:absolute;inset:0;display:grid;place-content:center;padding:24px;text-align:center;background:#f3f4f0c9;pointer-events:none}.state[hidden]{display:none}.report{font-size:12px;white-space:pre-line;padding:0 18px 16px;margin:0}.caption{padding:0 18px 16px;font-size:12px}.note{padding:18px 20px;border-left:2px solid #aa5477;background:#ffffff70;border-radius:0 12px 12px 0}.note p{margin:5px 0;font-size:13px}.foot{font-size:12px;margin-top:22px}@media(max-width:720px){main{padding:20px 15px 36px}.comparison{grid-template-columns:1fr}.stage{height:330px}.panel:first-child .stage{height:260px}header{margin-bottom:24px}.modes button{flex:1;padding-inline:8px;font-size:12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body><main>
+  <header><span class="brand">LECTUS<span>.</span></span><a href="/#product?id=SPU-234E824E28E2">返回商品</a></header>
+  <span class="eyebrow">LOCAL MULTI-VIEW EXPERIMENT</span>
+  <h1>真实纹理，立体还原到哪一步？</h1>
+  <p>ASICS Gel-Kayano 14 · Lime Zest/Pure Silver</p>
+  <p>四张单鞋照片共同约束轮廓，并投射原图纹理。相机与尺寸尚未标定，这是用于对比的近似模型，尚未通过商品模型验收。</p>
+  <div class="comparison">
+    <section class="panel">
+      <div class="label"><b>六张真实商品照片</b><span id="photo-name">外侧</span></div>
+      <div class="stage"><img id="reference" alt="ASICS Gel-Kayano 14 外侧实拍"></div>
+      <div class="photos" role="group" aria-label="选择参考照片"></div>
+      <p class="caption">形状与贴图使用外侧、内侧、鞋面、鞋底四张；前方和后跟是成对摆拍，仅作目视参考。</p>
+    </section>
+    <section class="panel">
+      <div class="label"><b id="model-title">轮廓与原图贴图</b><span class="tag">实验结果 · 未上架</span></div>
+      <div class="modes" role="group" aria-label="对比生成方案">
+        <button data-mode="photo" aria-pressed="true">原图贴图</button>
+        <button data-mode="shape" aria-pressed="false">只看形状</button>
+        <button data-mode="ai" aria-pressed="false">之前的单图 AI</button>
+      </div>
+      <div class="stage">
+        <model-viewer id="viewer" alt="四张照片约束的近似鞋形，尚未验收" lang="zh-CN" camera-controls disable-pan disable-tap touch-action="pan-y" camera-orbit="0deg 90deg 105%" environment-image="neutral" shadow-intensity=".8" exposure="1.1" interaction-prompt="none"><div slot="progress-bar"></div></model-viewer>
+        <div class="state" id="state" role="status">正在加载实验模型…</div>
+      </div>
+      <div class="controls" aria-label="选择模型视角">
+        <button disabled data-orbit="0deg 90deg 105%">侧面</button><button disabled data-orbit="35deg 65deg 105%">斜侧</button>
+        <button disabled data-orbit="180deg 90deg 105%">另一侧</button><button disabled data-orbit="0deg 8deg 105%">鞋面</button><button disabled data-orbit="0deg 172deg 105%">鞋底</button>
+      </div>
+      <p class="report" id="report" aria-live="polite"></p>
+    </section>
+  </div>
+  <div class="note"><b>本轮结论：未通过商品模型验收</b><p>侧面纹理清晰度改善，斜侧仍有明显拉伸与接缝。切到“只看形状”可见鞋口、鞋带和鞋底起伏尚未还原；保留此页供比较，未批量接入商城。</p></div>
+  <p class="foot">本机 CPU 试验，无收费服务。未绑定商城商品，也不用于尺寸测量或上脚试穿。<a href="./3d-lab.html">查看上一轮单图试验</a></p>
+</main>
+<script type="module">
+  import '@google/model-viewer';
+  const source='/.local/work/3d-preview/source-views/ASICS-KAYANO14-1203A537-301/';
+  const hull='/.local/work/3d-preview/multiview-hull/ASICS-KAYANO14-1203A537-301/';
+  const ai='/.local/work/3d-preview/SPU-234E824E28E2/CLR-774E8ADF3AC0/';
+  const names=['外侧','前方摆拍','内侧','后跟摆拍','鞋面','鞋底'];
+  const viewer=document.querySelector('#viewer'),state=document.querySelector('#state'),reference=document.querySelector('#reference');
+  const orbitButtons=[...document.querySelectorAll('[data-orbit]')],modes=[...document.querySelectorAll('[data-mode]')];
+  let timer,mode='photo',revision=0;
+  const imagePath=i=>source+`view-${String(i+1).padStart(2,'0')}.jpg`;
+  const photos=document.querySelector('.photos');
+  names.forEach((name,i)=>{
+    const button=document.createElement('button');button.type='button';button.setAttribute('aria-label',`查看${name}照片`);button.setAttribute('aria-pressed',String(i===0));
+    const image=document.createElement('img');image.src=imagePath(i);image.alt='';image.loading='lazy';
+    const label=document.createElement('span');label.textContent=name;button.append(image,label);
+    button.onclick=()=>{reference.src=imagePath(i);reference.alt=`ASICS Gel-Kayano 14 ${name}实拍`;document.querySelector('#photo-name').textContent=name;photos.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)))};
+    photos.append(button);
+  });
+  reference.src=imagePath(0);
+  function failed(){clearTimeout(timer);state.hidden=false;state.textContent='实验模型加载失败，请切换方案重试。';orbitButtons.forEach(b=>b.disabled=true)}
+  viewer.addEventListener('error',failed);
+  viewer.addEventListener('load',()=>{clearTimeout(timer);state.hidden=true;orbitButtons.forEach(b=>b.disabled=false)});
+  async function choose(next){
+    mode=next;const version=++revision;
+    clearTimeout(timer);state.hidden=false;state.textContent='正在加载实验模型…';orbitButtons.forEach(b=>b.disabled=true);
+    modes.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));
+    const dir=mode==='ai'?ai:hull;
+    document.querySelector('#model-title').textContent=({photo:'轮廓与原图贴图',shape:'无贴图的实际网格',ai:'之前的单图 AI 结果'})[mode];
+    viewer.alt=mode==='ai'?'单图 AI 生成的鞋形，视觉未验收':'四张照片约束的近似鞋形，尚未验收';
+    viewer.cameraOrbit=mode==='ai'?'-35deg 72deg 105%':'0deg 90deg 105%';
+    timer=setTimeout(failed,45000);
+    viewer.src=dir+(mode==='shape'?'geometry.glb':'preview.glb');
+    try{
+      const response=await fetch(dir+'generation.json');if(!response.ok)throw Error('report');const report=await response.json();if(version!==revision)return;
+      const bytes=mode==='shape'?null:report.bytes;
+      document.querySelector('#report').textContent=`${bytes?(bytes/1048576).toFixed(2)+' MiB · ':''}${report.triangles.toLocaleString()} 三角面 · ${report.seconds} 秒（CPU 实测）\n${mode==='ai'?'单张图片推断；视觉未通过验收。':'四张实拍、正交投影近似；鞋口与细小结构未还原。'}`;
+    }catch{if(version===revision)document.querySelector('#report').textContent='实验记录暂时无法加载。'}
+  }
+  modes.forEach(b=>b.onclick=()=>choose(b.dataset.mode));
+  orbitButtons.forEach(b=>b.onclick=()=>{viewer.cameraOrbit=b.dataset.orbit;if(matchMedia('(prefers-reduced-motion: reduce)').matches)viewer.jumpCameraToGoal()});
+  choose('photo');
+</script>
+</body>
+</html>

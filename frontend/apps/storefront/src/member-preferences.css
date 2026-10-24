@@ -1,0 +1,41 @@
+.member-avatar { overflow:hidden; }
+.member-avatar img { display:block; width:100%; height:100%; object-fit:cover; }
+.header-tools .header-avatar { width:30px; height:30px; flex-shrink:0; font-size:14px; color:#c4f2f5; background:var(--ink); }
+.header-account-name { max-width:110px; overflow:hidden; text-overflow:ellipsis; }
+.header-tools .header-account { min-width:0; }
+.avatar-editor { padding-bottom:30px; border-bottom:1px solid var(--line); margin-bottom:28px; }
+.avatar-editor-summary { display:flex; align-items:center; gap:22px; }
+.avatar-editor-summary>.member-avatar { width:88px; height:88px; font-size:32px; background:var(--ink); }
+.avatar-editor-summary h3 { margin:0; }
+.avatar-editor-summary p, .avatar-crop-controls p { color:var(--muted); font-size:14px; line-height:1.8; margin:8px 0 4px; }
+.avatar-file-hint { font-size:12px; line-height:1.8; color:var(--muted); margin:18px 0 0; }
+.avatar-crop-editor { display:grid; grid-template-columns:minmax(180px,280px) minmax(0,1fr); gap:30px; margin-top:28px; max-width:720px; align-items:start; }
+.avatar-crop-preview { position:relative; aspect-ratio:1; width:100%; overflow:hidden; background:#eaf2f2; border-radius:12px; touch-action:none; cursor:grab; user-select:none; }
+.avatar-crop-preview:active { cursor:grabbing; }
+.avatar-crop-preview canvas { width:100%; height:100%; display:block; }
+.avatar-circle-guide { position:absolute; inset:0; border-radius:50%; outline:1px solid #ffffffa0; outline-offset:-1px; box-shadow:0 0 0 100px #152a2a66; pointer-events:none; }
+.avatar-crop-controls h3 { margin:0; }
+.avatar-crop-controls>label { display:grid; grid-template-columns:70px minmax(0,1fr); align-items:center; gap:12px; font-size:13px; min-height:44px; }
+.avatar-crop-controls input { width:100%; accent-color:var(--accent-ink); min-width:0; }
+.avatar-crop-controls .account-form-actions { margin-top:12px; }
+.avatar-crop-controls .button { font-size:13px; padding-inline:17px; }
+.cookie-settings { margin-top:44px; padding-top:32px; border-top:1px solid var(--line); }
+.cookie-settings>p { font-size:14px; color:var(--muted); line-height:1.8; }
+.cookie-settings .cookie-current { color:var(--accent-ink); margin:20px 0; }
+.cookie-notice { position:fixed; z-index:30; bottom:20px; left:50%; transform:translateX(-50%); width:min(860px,calc(100% - 40px)); max-height:calc(100dvh - 40px); overflow:auto; padding:28px 32px; border-radius:14px; background:var(--surface); box-shadow:0 12px 64px #142d2e33; }
+.cookie-notice h2 { font-size:24px; font-weight:500; line-height:1.4; margin:0 0 12px; }
+.cookie-notice-copy p { font-size:14px; color:var(--muted); line-height:1.8; margin:8px 0; max-width:75ch; }
+.cookie-notice-copy .cookie-scope { font-size:12px; }
+.cookie-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:22px; }
+.cookie-actions .button { min-height:46px; padding-inline:20px; font-size:13px; }
+.cookie-options { margin:22px 0 0; border:0; border-top:1px solid var(--line); padding:20px 0 0; }
+.cookie-options legend { padding:0 12px 0 0; font-size:14px; }
+.cookie-options label { display:flex; align-items:flex-start; gap:12px; padding:10px 0; cursor:pointer; }
+.cookie-options input { width:18px; height:18px; margin:3px 0; accent-color:var(--accent-ink); flex-shrink:0; }
+.cookie-options strong { display:block; font-size:14px; font-weight:500; line-height:1.6; }
+.cookie-options small { display:block; font-size:13px; color:var(--muted); line-height:1.8; margin-top:4px; }
+.cookie-options>p { font-size:12px; line-height:1.8; color:var(--muted); }
+.footer-cookie-button { min-height:44px; padding:0; color:#bfcdcf; text-align:start; font-size:13px; }
+.footer-cookie-button:hover { color:#91dce3; }
+@media(max-width:700px) { .avatar-crop-editor { grid-template-columns:1fr; gap:22px; } .avatar-crop-preview { max-width:300px; justify-self:center; } .avatar-editor-summary { gap:16px; } .avatar-editor-summary>.member-avatar { width:70px; height:70px; } .cookie-notice { bottom:12px; width:calc(100% - 24px); padding:22px; max-height:calc(100dvh - 24px); } .cookie-notice h2 { font-size:22px; } .cookie-actions { gap:9px; } .cookie-actions .button { flex:1 1 100%; } }
+@media(max-width:1050px) { .header-tools .header-account .header-avatar { display:grid; } }

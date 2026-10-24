@@ -1,0 +1,6 @@
+**/target
+**/data
+.runtime
+legacy
+*.log
+**/.local*

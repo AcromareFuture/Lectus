@@ -1,0 +1,27 @@
+{
+  "name": "@lectus/storefront",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:legacy": "vite --config vite.legacy.config.js --host 127.0.0.1 --port 4200",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4206 --strictPort",
+    "test": "node --test src/domain.test.js src/api.test.js src/catalog.test.js src/web-route.test.js src/web-featured.test.js src/web-pricing.test.js src/account-orders.test.js src/member-preferences.test.js src/address-regions.test.js src/community-state.test.js src/community-interactions.test.js"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.4.0",
+    "@vant/area-data": "^2.1.0",
+    "lucide-react": "^0.468.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@babel/parser": "^8.0.7",
+    "esbuild": "^0.28.2",
+    "jsdom": "^29.1.1",
+    "vite": "^7.1.0"
+  }
+}

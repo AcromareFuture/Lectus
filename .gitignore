@@ -1,0 +1,40 @@
+node_modules/
+dist/
+dist-web/
+target/
+.DS_Store
+*.log
+.env*
+!.env.example
+!**/.env.example
+.runtime/
+.local/
+backend/data/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+
+# Local tooling state and one-off scripts
+.impeccable/
+/work/
+
+# Runtime data, credentials and backups; SQL migrations remain tracked
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.mv.db
+*.trace.db
+*.dump
+*.backup
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*credentials*.json
+
+# Online acceptance captures can contain account/address/order information
+/docs/assets/online-*/
+/archive/previews/

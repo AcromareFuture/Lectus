@@ -1,0 +1,33 @@
+<script setup lang="ts">
+import { computed, ref } from 'vue';
+import { Search, Download, Store, PackageCheck, SlidersHorizontal, ArrowRight } from '@lucide/vue';
+import { merchants, products, merchantName, money, imageUrl, badgeClass, downloadCsv, notify } from '../data/platform';
+import type { Detail } from '../data/platform';
+const props = defineProps<{ page: 'merchants' | 'products'; initialFilter: string }>();
+const emit = defineEmits<{ detail: [detail: Detail] }>();
+const query = ref('');
+const status = ref(props.initialFilter || '全部');
+const scope = ref('全部');
+const statuses = computed(() => props.page === 'merchants' ? ['全部', '待审核', '营业中', '已驳回', '已停用'] : ['全部', '待审核', '销售中', '已驳回', '已下架']);
+const filteredMerchants = computed(() => merchants.filter(m => (status.value === '全部' || m.status === status.value) && (scope.value === '全部' || m.type === scope.value) && `${m.name} ${m.id} ${m.company}`.toLowerCase().includes(query.value.trim().toLowerCase())).sort((a, b) => b.submitted.localeCompare(a.submitted)));
+const filteredProducts = computed(() => products.filter(p => (status.value === '全部' || p.status === status.value) && (scope.value === '全部' || p.merchantId === scope.value) && `${p.name} ${p.id} ${merchantName(p.merchantId)}`.toLowerCase().includes(query.value.trim().toLowerCase())).sort((a, b) => b.submitted.localeCompare(a.submitted)));
+const total = computed(() => props.page === 'merchants' ? filteredMerchants.value.length : filteredProducts.value.length);
+const summary = computed(() => props.page === 'merchants' ? [
+  { label: '平台商家', value: merchants.length, unit: '家' }, { label: '营业中', value: merchants.filter(m => m.status === '营业中').length, unit: '家' }, { label: '入驻待审核', value: merchants.filter(m => m.status === '待审核').length, unit: '家' },
+] : [
+  { label: '全部商品', value: products.length, unit: '件' }, { label: '待审核', value: products.filter(p => p.status === '待审核').length, unit: '件' }, { label: '销售中', value: products.filter(p => p.status === '销售中').length, unit: '件' },
+]);
+function reset() { query.value = ''; status.value = '全部'; scope.value = '全部'; }
+function exportList() {
+  const rows: (string | number)[][] = props.page === 'merchants' ? [['商家编号', '商家名称', '类型', '经营类目', '申请日期', '状态'], ...filteredMerchants.value.map(m => [m.id, m.name, m.type, m.category, m.submitted, m.status])] : [['商品编号', '名称', '所属商家', '售价', '库存', '状态'], ...filteredProducts.value.map(p => [p.id, p.name, merchantName(p.merchantId), p.price, p.stock, p.status])];
+  downloadCsv(`Lectus-${props.page === 'merchants' ? '商家' : '商品'}列表.csv`, rows); notify('当前筛选结果已导出');
+}
+</script>
+<template>
+  <section class="summary-strip" aria-label="数据汇总"><div v-for="item in summary" :key="item.label"><span>{{ item.label }}</span><strong>{{ item.value }}<small>{{ item.unit }}</small></strong></div><span class="summary-icon"><Store v-if="page === 'merchants'" :size="30" aria-hidden="true" /><PackageCheck v-else :size="30" aria-hidden="true" /></span></section>
+  <section class="panel management-panel"><header class="list-heading"><div><h2>{{ page === 'merchants' ? '商家列表' : '商品列表' }}</h2><p>{{ page === 'merchants' ? '自营店与入驻商家统一管理' : '按提交日期倒序显示' }}</p></div><button class="secondary-button" @click="exportList"><Download :size="16" aria-hidden="true" />导出列表</button></header><div class="tabs" :aria-label="page === 'merchants' ? '商家状态' : '商品状态'"><button v-for="s in statuses" :key="s" :aria-pressed="status === s" @click="status = s">{{ s }}</button></div><div class="filter-toolbar"><label class="search-field"><Search :size="18" aria-hidden="true" /><input v-model="query" :aria-label="page === 'merchants' ? '搜索商家' : '搜索商品'" :placeholder="page === 'merchants' ? '搜索商家名称、编号或企业名称' : '搜索商品名称、编号或商家'" /></label><label class="select-control"><SlidersHorizontal :size="15" aria-hidden="true" /><select v-model="scope" :aria-label="page === 'merchants' ? '商家类型' : '所属商家'"><option value="全部">{{ page === 'merchants' ? '全部类型' : '全部商家' }}</option><template v-if="page === 'merchants'"><option>自营</option><option>入驻</option></template><template v-else><option v-for="m in merchants" :key="m.id" :value="m.id">{{ m.name }}</option></template></select></label><button v-if="query || status !== '全部' || scope !== '全部'" class="text-button" @click="reset">重置筛选</button><span class="filter-count">{{ total }} 条记录</span></div>
+    <div class="table-scroll"><table v-if="page === 'merchants'" class="data-table merchant-table"><caption class="sr-only">商家列表，共 {{ total }} 条</caption><thead><tr><th>商家信息</th><th>经营类目</th><th>商家类型</th><th>申请日期</th><th>状态</th><th class="right">操作</th></tr></thead><tbody><tr v-for="m in filteredMerchants" :key="m.id"><td><div class="table-merchant"><span :class="['avatar', { official: m.type === '自营' }]">{{ m.initials }}</span><div><strong>{{ m.name }}</strong><small>{{ m.id }}</small></div></div></td><td>{{ m.category }}</td><td><span :class="['type-label', { official: m.type === '自营' }]">{{ m.type }}</span></td><td class="tabular muted">{{ m.submitted }}</td><td><span :class="['badge', badgeClass(m.status)]">{{ m.status }}</span></td><td class="right"><button class="table-action" @click="emit('detail', { kind: 'merchant', item: m })">{{ m.status === '待审核' ? '审核' : '查看' }}<ArrowRight :size="14" aria-hidden="true" /></button></td></tr></tbody></table>
+    <table v-else class="data-table product-table"><caption class="sr-only">商品列表，共 {{ total }} 条</caption><thead><tr><th>商品信息</th><th>所属商家</th><th class="right">售价 / 库存</th><th>提交日期</th><th>状态</th><th class="right">操作</th></tr></thead><tbody><tr v-for="p in filteredProducts" :key="p.id"><td><div class="table-product"><img :src="imageUrl(p.image)" :alt="p.name" loading="lazy" /><div><strong>{{ p.name }}</strong><small>{{ p.spec }} · {{ p.id }}</small></div></div></td><td>{{ merchantName(p.merchantId) }}</td><td class="right tabular"><strong>¥{{ money(p.price) }}</strong><small :class="{ 'warning-text': p.stock < 20 }">库存 {{ p.stock }} 件</small></td><td class="tabular muted">{{ p.submitted }}</td><td><span :class="['badge', badgeClass(p.status)]">{{ p.status }}</span></td><td class="right"><button class="table-action" @click="emit('detail', { kind: 'product', item: p })">{{ p.status === '待审核' ? '审核' : '查看' }}<ArrowRight :size="14" aria-hidden="true" /></button></td></tr></tbody></table></div>
+    <div v-if="!total" class="empty-state"><Search :size="28" aria-hidden="true" /><h3>没有符合条件的记录</h3><p>请调整搜索内容或筛选条件。</p><button class="secondary-button" @click="reset">清除筛选</button></div><footer class="table-footer"><span>共 {{ total }} 条 · 已显示全部筛选结果</span><span>记录已保存 · 每 5 秒同步</span></footer>
+  </section>
+</template>

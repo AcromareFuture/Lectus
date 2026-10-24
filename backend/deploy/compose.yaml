@@ -1,0 +1,153 @@
+name: lectus
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: lectus_admin
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?Set POSTGRES_ADMIN_PASSWORD}
+      IDENTITY_DB_PASSWORD: ${IDENTITY_DB_PASSWORD:?Set IDENTITY_DB_PASSWORD}
+      CATALOG_DB_PASSWORD: ${CATALOG_DB_PASSWORD:?Set CATALOG_DB_PASSWORD}
+      TRADE_DB_PASSWORD: ${TRADE_DB_PASSWORD:?Set TRADE_DB_PASSWORD}
+      MEMBER_DB_PASSWORD: ${MEMBER_DB_PASSWORD:?Set MEMBER_DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/01-databases.sh:/docker-entrypoint-initdb.d/01-databases.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U lectus_admin -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  redis:
+    image: redis:7.4-alpine
+    command: [redis-server, --save, "", --appendonly, "no"]
+    restart: unless-stopped
+  identity:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        MODULE: services/identity-service
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      DB_URL: jdbc:postgresql://postgres:5432/lectus_identity
+      DB_USER: lectus_identity
+      DB_PASSWORD: ${IDENTITY_DB_PASSWORD}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:8082/actuator/health/readiness]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    restart: unless-stopped
+  catalog:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        MODULE: services/catalog-service
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      DB_URL: jdbc:postgresql://postgres:5432/lectus_catalog
+      DB_USER: lectus_catalog
+      DB_PASSWORD: ${CATALOG_DB_PASSWORD}
+      REDIS_HOST: redis
+      CATALOG_CACHE: "true"
+      ASSETS_ORIGIN: ${ASSETS_ORIGIN:-http://host.docker.internal:19000/lectus-assets/}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:8083/actuator/health/readiness]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    restart: unless-stopped
+  trade:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        MODULE: services/trade-service
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      DB_URL: jdbc:postgresql://postgres:5432/lectus_trade
+      DB_USER: lectus_trade
+      DB_PASSWORD: ${TRADE_DB_PASSWORD}
+      IDENTITY_URL: http://identity:8082
+      SEED_CATALOG: "false"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:8084/actuator/health/readiness]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    restart: unless-stopped
+  member:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        MODULE: services/member-service
+    environment:
+      VIRIDAC_BIND_ADDRESS: 0.0.0.0
+      VIRIDAC_DB_URL: jdbc:postgresql://postgres:5432/lectus_member
+      VIRIDAC_DB_USERNAME: lectus_member
+      VIRIDAC_DB_PASSWORD: ${MEMBER_DB_PASSWORD}
+      VIRIDAC_SMS_ENABLED: "false"
+      VIRIDAC_ORDER_TIMEOUT_TASK_ENABLED: "false"
+      VIRIDAC_SANDBOX_PAYMENT_ENABLED: "false"
+      VIRIDAC_UPLOAD_DIRECTORY: /app/data/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:8081/actuator/health/readiness]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
+    restart: unless-stopped
+    volumes:
+      - member-data:/app/data
+  gateway:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        MODULE: gateway
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      IDENTITY_URL: http://identity:8082
+      CATALOG_URL: http://catalog:8083
+      TRADE_URL: http://trade:8084
+      MEMBER_URL: http://member:8081
+      FRONTEND_PUBLIC_ORIGIN: ${FRONTEND_PUBLIC_ORIGIN:-http://localhost:4206}
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      identity:
+        condition: service_healthy
+      catalog:
+        condition: service_healthy
+      trade:
+        condition: service_healthy
+      member:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:8080/actuator/health/readiness]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  postgres-data:
+  member-data:

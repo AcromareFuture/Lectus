@@ -1,0 +1,48 @@
+<script setup lang="ts">
+import { businessNote } from '../../../../packages/business-records';
+import { computed, ref } from 'vue';
+import { Search, Download, ArrowRight, Wallet, ShoppingBag, RotateCcw } from '@lucide/vue';
+import { orders, aftersales, settlements, merchants, merchantName, productName, money, settlementTotals, badgeClass, downloadCsv, notify } from '../data/platform';
+import type { Detail } from '../data/platform';
+const props = defineProps<{ page: 'orders' | 'aftersales' | 'finance'; initialFilter: string }>();
+const emit = defineEmits<{ detail: [detail: Detail] }>();
+const status = ref(props.initialFilter || '全部');
+const query = ref('');
+const merchant = ref('全部');
+const start = ref('');
+const end = ref('');
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+const statuses = computed(() => props.page === 'orders' ? ['全部', '待付款', '待发货', '运输中', '已完成', '退款中', '已退款', '已取消'] : props.page === 'aftersales' ? ['全部', '待处理', '已处理', '已驳回'] : ['全部', '待核对', '已核对']);
+const rowsOrders = computed(() => orders.filter(o => (status.value === '全部' || o.status === status.value) && (merchant.value === '全部' || o.merchantId === merchant.value) && `${o.id} ${o.customer} ${productName(o.productId)}`.toLowerCase().includes(query.value.trim().toLowerCase()) && (!start.value || o.time.slice(0, 10) >= start.value) && (!end.value || o.time.slice(0, 10) <= end.value)));
+const rowsAftersales = computed(() => aftersales.filter(a => {
+  const order = orders.find(o => o.id === a.orderId);
+  return (status.value === '全部' || a.status === status.value) && (merchant.value === '全部' || order?.merchantId === merchant.value) && `${a.id} ${a.orderId} ${a.reason}`.includes(query.value.trim());
+}));
+const rowsFinance = computed(() => settlements.filter(s => (status.value === '全部' || s.status === status.value) && (merchant.value === '全部' || s.merchantId === merchant.value) && `${s.id} ${merchantName(s.merchantId)}`.includes(query.value.trim())));
+const total = computed(() => props.page === 'orders' ? rowsOrders.value.length : props.page === 'aftersales' ? rowsAftersales.value.length : rowsFinance.value.length);
+const netPending = computed(() => settlements.filter(s => s.status === '待核对').reduce((n, s) => n + Math.round(settlementTotals(s).net * 100), 0) / 100);
+const totalFee = computed(() => settlements.reduce((n, s) => n + Math.round(settlementTotals(s).fee * 100), 0) / 100);
+const summary = computed(() => props.page === 'orders' ? [
+  { label: '平台订单', value: String(orders.length), unit: '单' }, { label: '待发货', value: String(orders.filter(o => o.status === '待发货').length), unit: '单' }, { label: '退款处理中', value: String(orders.filter(o => o.status === '退款中').length), unit: '单' },
+] : props.page === 'aftersales' ? [
+  { label: '售后申请', value: String(aftersales.length), unit: '单' }, { label: '待处理', value: String(aftersales.filter(a => a.status === '待处理').length), unit: '单' }, { label: '待处理退款金额', value: `¥${money(aftersales.filter(a => a.status === '待处理').reduce((n, a) => n + a.amount, 0))}`, unit: '' },
+] : [
+  { label: '待核对应结金额', value: `¥${money(netPending.value)}`, unit: '' }, { label: '账单服务费合计', value: `¥${money(totalFee.value)}`, unit: '' }, { label: '已核对账单', value: String(settlements.filter(s => s.status === '已核对').length), unit: '笔' },
+]);
+function reset() { query.value = ''; status.value = '全部'; merchant.value = '全部'; start.value = ''; end.value = ''; }
+function orderMerchant(orderId: string) { const o = orders.find(o => o.id === orderId); return o ? merchantName(o.merchantId) : '—'; }
+function exportList() {
+  const rows: (string | number)[][] = props.page === 'orders' ? [['订单号', '商家', '买家（脱敏）', '金额', '时间', '状态'], ...rowsOrders.value.map(o => [o.id, merchantName(o.merchantId), o.customer, o.amount, o.time, o.status])] : props.page === 'aftersales' ? [['售后单号', '订单号', '商家', '原因', '金额', '状态'], ...rowsAftersales.value.map(a => [a.id, a.orderId, orderMerchant(a.orderId), businessNote(a.reason), a.amount, a.status])] : [['账单号', '商家', '订单金额', '服务费', '应结金额', '状态'], ...rowsFinance.value.map(s => [s.id, merchantName(s.merchantId), settlementTotals(s).gross, settlementTotals(s).fee, settlementTotals(s).net, s.status])];
+  downloadCsv(`Lectus-${props.page}.csv`, rows); notify('当前筛选结果已导出');
+}
+</script>
+<template>
+  <section class="summary-strip" aria-label="数据汇总"><div v-for="s in summary" :key="s.label"><span>{{ s.label }}</span><strong>{{ s.value }}<small>{{ s.unit }}</small></strong></div><span class="summary-icon"><ShoppingBag v-if="page === 'orders'" :size="30" aria-hidden="true" /><RotateCcw v-else-if="page === 'aftersales'" :size="30" aria-hidden="true" /><Wallet v-else :size="30" aria-hidden="true" /></span></section>
+  <div v-if="page === 'finance'" class="inline-notice"><Wallet :size="18" aria-hidden="true" /><p>账单按关联的已完成订单计算，服务费以账单明细为准。账单核对不执行打款。</p></div>
+  <section class="panel management-panel"><header class="list-heading"><div><h2>{{ page === 'orders' ? '平台订单' : page === 'aftersales' ? '售后申请' : '商家结算账单' }}</h2><p>{{ page === 'orders' ? '跨商家查询，不代替商家发货' : page === 'aftersales' ? '查看申请详情后填写处理说明' : '查看账单明细与关联订单' }}</p></div><button class="secondary-button" @click="exportList"><Download :size="16" aria-hidden="true" />导出列表</button></header><div class="tabs" aria-label="业务状态"><button v-for="s in statuses" :key="s" :aria-pressed="status === s" @click="status = s">{{ s }}</button></div><div class="filter-toolbar"><label class="search-field"><Search :size="17" aria-hidden="true" /><input v-model="query" :aria-label="page === 'orders' ? '搜索订单' : page === 'aftersales' ? '搜索售后' : '搜索账单'" :placeholder="page === 'orders' ? '搜索订单号、商品或买家' : page === 'aftersales' ? '搜索售后单号、订单号或原因' : '搜索账单号或商家名称'" /></label><label class="select-control"><select v-model="merchant" aria-label="所属商家"><option value="全部">全部商家</option><option v-for="m in merchants" :key="m.id" :value="m.id">{{ m.name }}</option></select></label><button v-if="query || merchant !== '全部' || status !== '全部' || start || end" class="text-button" @click="reset">重置筛选</button><span class="filter-count">{{ total }} 条记录</span></div><div v-if="page === 'orders'" class="date-filter"><label>下单日期<input v-model="start" type="date" aria-label="开始日期" :max="end || today" /></label><span>至</span><input v-model="end" type="date" aria-label="结束日期" :min="start" :max="today" /><span v-if="start && end && start > end" class="form-error" role="alert">开始日期不能晚于结束日期</span></div>
+    <div class="table-scroll"><table v-if="page === 'orders'" class="data-table order-table"><caption class="sr-only">平台订单列表，共 {{ total }} 条</caption><thead><tr><th>订单 / 商品</th><th>所属商家</th><th>买家</th><th class="right">订单金额</th><th>下单时间</th><th>状态</th><th class="right">操作</th></tr></thead><tbody><tr v-for="o in rowsOrders" :key="o.id"><td><strong class="tabular order-id">{{ o.id }}</strong><small>{{ productName(o.productId) }} × {{ o.quantity }}</small></td><td>{{ merchantName(o.merchantId) }}</td><td>{{ o.customer }}</td><td class="right tabular"><strong>¥{{ money(o.amount) }}</strong></td><td class="tabular muted">{{ o.time.slice(5) }}</td><td><span :class="['badge', badgeClass(o.status)]">{{ o.status }}</span></td><td class="right"><button class="table-action" @click="emit('detail', { kind: 'order', item: o })">详情<ArrowRight :size="14" aria-hidden="true" /></button></td></tr></tbody></table>
+    <table v-else-if="page === 'aftersales'" class="data-table aftersale-table"><caption class="sr-only">售后申请列表，共 {{ total }} 条</caption><thead><tr><th>售后 / 订单</th><th>所属商家</th><th>申请原因</th><th class="right">退款金额</th><th>状态</th><th class="right">操作</th></tr></thead><tbody><tr v-for="a in rowsAftersales" :key="a.id"><td><strong class="tabular">{{ a.id }}</strong><small>{{ a.orderId }}</small></td><td>{{ orderMerchant(a.orderId) }}</td><td class="reason-cell">{{ businessNote(a.reason) }}</td><td class="right tabular"><strong>¥{{ money(a.amount) }}</strong></td><td><span :class="['badge', badgeClass(a.status)]">{{ a.status }}</span></td><td class="right"><button class="table-action" @click="emit('detail', { kind: 'aftersale', item: a })">{{ a.status === '待处理' ? '处理' : '详情' }}<ArrowRight :size="14" aria-hidden="true" /></button></td></tr></tbody></table>
+    <table v-else class="data-table finance-table"><caption class="sr-only">结算账单列表，共 {{ total }} 条</caption><thead><tr><th>账单 / 商家</th><th>账单周期</th><th class="right">订单金额</th><th class="right">服务费</th><th class="right">应结金额</th><th>状态</th><th class="right">操作</th></tr></thead><tbody><tr v-for="s in rowsFinance" :key="s.id"><td><strong class="tabular">{{ s.id }}</strong><small>{{ merchantName(s.merchantId) }}</small></td><td class="tabular muted">{{ s.period }}</td><td class="right tabular">¥{{ money(settlementTotals(s).gross) }}</td><td class="right tabular">¥{{ money(settlementTotals(s).fee) }}</td><td class="right tabular"><strong class="brand-text">¥{{ money(settlementTotals(s).net) }}</strong></td><td><span :class="['badge', badgeClass(s.status)]">{{ s.status }}</span></td><td class="right"><button class="table-action" @click="emit('detail', { kind: 'settlement', item: s })">{{ s.status === '待核对' ? '核对' : '详情' }}<ArrowRight :size="14" aria-hidden="true" /></button></td></tr></tbody></table></div>
+    <div v-if="!total" class="empty-state"><Search :size="28" aria-hidden="true" /><h3>没有符合条件的记录</h3><p>请调整搜索内容或筛选条件。</p><button class="secondary-button" @click="reset">清除筛选</button></div><footer class="table-footer"><span>共 {{ total }} 条 · 已显示全部筛选结果</span><span>{{ page === 'finance' ? '账单核对不执行打款' : '记录已保存 · 每 5 秒同步' }}</span></footer>
+  </section>
+</template>

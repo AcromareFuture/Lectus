@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VPointsMallMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VPointsMall">
+            <id property="itemId" column="item_id" />
+            <result property="name" column="name" />
+            <result property="imageUrl" column="image_url" />
+            <result property="pointsPrice" column="points_price" />
+            <result property="stock" column="stock" />
+            <result property="exchangedCount" column="exchanged_count" />
+            <result property="description" column="description" />
+            <result property="status" column="status" />
+            <result property="startTime" column="start_time" />
+            <result property="endTime" column="end_time" />
+            <result property="createBy" column="create_by" />
+            <result property="createTime" column="create_time" />
+            <result property="updateBy" column="update_by" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        item_id,name,image_url,points_price,stock,exchanged_count,
+        description,status,start_time,end_time,create_by,
+        create_time,update_by,update_time
+    </sql>
+</mapper>

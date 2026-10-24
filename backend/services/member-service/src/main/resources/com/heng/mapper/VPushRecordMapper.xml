@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VPushRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VPushRecord">
+            <id property="pushId" column="push_id" />
+            <result property="memberId" column="member_id" />
+            <result property="pushType" column="push_type" />
+            <result property="title" column="title" />
+            <result property="content" column="content" />
+            <result property="bizId" column="biz_id" />
+            <result property="readTime" column="read_time" />
+            <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        push_id,member_id,push_type,title,content,biz_id,
+        read_time,create_time
+    </sql>
+</mapper>

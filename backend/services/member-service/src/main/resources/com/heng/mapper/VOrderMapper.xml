@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VOrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VOrder">
+            <id property="orderId" column="order_id" />
+            <result property="orderNo" column="order_no" />
+            <result property="memberId" column="member_id" />
+            <result property="addressId" column="address_id" />
+            <result property="contactName" column="contact_name" />
+            <result property="contactPhone" column="contact_phone" />
+            <result property="shippingAddress" column="shipping_address" />
+            <result property="goodsAmountFen" column="goods_amount_fen" />
+            <result property="discountAmountFen" column="discount_amount_fen" />
+            <result property="freightAmountFen" column="freight_amount_fen" />
+            <result property="payAmountFen" column="pay_amount_fen" />
+            <result property="pointsUsed" column="points_used" />
+            <result property="couponReceiveId" column="coupon_receive_id" />
+            <result property="payType" column="pay_type" />
+            <result property="status" column="status" />
+            <result property="payTime" column="pay_time" />
+            <result property="shipTime" column="ship_time" />
+            <result property="receiveTime" column="receive_time" />
+            <result property="cancelTime" column="cancel_time" />
+            <result property="closeTime" column="close_time" />
+            <result property="shipCompany" column="ship_company" />
+            <result property="shipNo" column="ship_no" />
+            <result property="remark" column="remark" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,order_no,member_id,address_id,contact_name,contact_phone,
+        shipping_address,goods_amount_fen,discount_amount_fen,freight_amount_fen,pay_amount_fen,
+        points_used,coupon_receive_id,pay_type,status,pay_time,
+        ship_time,receive_time,cancel_time,close_time,ship_company,
+        ship_no,remark,create_time,update_time
+    </sql>
+</mapper>

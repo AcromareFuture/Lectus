@@ -1,0 +1,71 @@
+.account-page { --account-rule: rgba(53,67,56,.12); padding-bottom: 40px; }
+.account-page h1 { font-size: 28px; line-height: 1.3; letter-spacing: -.03em; }
+.account-page h2 { font-size: 17px; }
+.account-welcome { margin: 25px 0 32px; }
+.account-welcome > svg { margin-bottom: 16px; color: var(--pink); }
+.account-welcome p, .account-footnote { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.account-auth fieldset, .account-delivery fieldset { display: grid; gap: 18px; border: 0; min-width: 0; padding: 0; margin: 0; }
+.account-page label { display: grid; gap: 8px; font-size: 13px; }
+.account-page input:not([type=checkbox]), .account-page select { width: 100%; min-width: 0; min-height: 46px; border-radius: 12px; padding: 10px 12px; border: 1px solid var(--account-rule); background: var(--glass-control); color: var(--ink); font: inherit; }
+.account-page select { text-overflow: ellipsis; }
+.account-page :is(input,select,button):focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+.account-page input { caret-color: var(--pink); }
+.account-page input[type=checkbox] { accent-color: var(--pink); width: 18px; height: 18px; }
+.account-page button:disabled { opacity: .5; cursor: not-allowed; }
+.account-auth .black-button { width: 100%; margin-top: 5px; }
+.account-switch { display: block; min-height: 48px; margin: 16px auto 26px; color: var(--pink); font-size: 13px; }
+.account-message { padding: 12px 14px; margin: 0 0 16px; border-radius: 12px; background: var(--glass-control); line-height: 1.7; font-size: 13px; }
+.account-error { border: 1px solid rgba(170,40,125,.4); }
+.account-message p { margin: 0; }
+.account-message button { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; color: var(--pink); }
+.account-heading { display: flex; justify-content: space-between; align-items: flex-start; margin: 8px 0 25px; }
+.account-heading h1 { margin: 5px 0; overflow-wrap: anywhere; }
+.account-heading p { margin: 0; font-size: 12px; overflow-wrap: anywhere; }
+.account-heading small { font-size: 11px; color: var(--muted); }
+.account-tabs { display: flex; border-bottom: 1px solid var(--account-rule); gap: 20px; }
+.account-tabs button { position: relative; min-height: 48px; font-size: 14px; color: var(--muted); }
+.account-tabs button[aria-current=page] { color: var(--ink); font-weight: 700; }
+.account-tabs button::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--pink); transform: scaleX(0); transition: transform 220ms var(--ease); }
+.account-tabs button[aria-current=page]::after { transform: scaleX(1); }
+.account-tabs small { margin-left: 5px; color: var(--pink); }
+.account-product-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px 14px; margin-top: 22px; }
+.account-product { text-align: left; min-width: 0; }
+.account-product img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: var(--glass-card); border-radius: 16px; margin-bottom: 12px; }
+.account-product small { display: block; font-size: 10px; color: var(--muted); margin-bottom: 6px; }
+.account-product b { font-size: 12px; line-height: 1.6; display: block; min-height: 38px; overflow-wrap: anywhere; }
+.account-product strong { display: flex; gap: 6px; align-items: center; justify-content: space-between; font-size: 16px; margin-top: 9px; font-variant-numeric: tabular-nums; }
+.account-picker { position: sticky; bottom: 0; padding: 18px; margin: 20px -6px 0; background: var(--glass-sheet); backdrop-filter: var(--glass-blur-heavy); -webkit-backdrop-filter: var(--glass-blur-heavy); box-shadow: 0 8px 30px rgba(37,42,41,.18); border-radius: 16px; z-index: 2; }
+.account-picker-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 15px; }
+.account-picker h2 { margin: 0; line-height: 1.5; }
+.account-picker .black-button { width: 100%; margin-top: 18px; }
+.account-empty { text-align: center; padding: 45px 10px; }
+.account-empty > svg { color: var(--muted); margin-bottom: 10px; }
+.account-empty .outline-button { margin: 18px auto 0; }
+.account-cart-row { display: grid; grid-template-columns: 20px 80px minmax(0,1fr); align-items: start; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--account-rule); }
+.account-cart-row img { width: 80px; aspect-ratio: 1; object-fit: contain; border-radius: 12px; background: var(--glass-card); }
+.account-cart-row b { display: block; font-size: 13px; line-height: 1.6; }
+.account-cart-row small { display: block; font-size: 11px; color: var(--muted); margin: 5px 0; }
+.account-cart-row strong { font-size: 15px; font-variant-numeric: tabular-nums; }
+.account-quantity { display: flex; align-items: center; margin-top: 4px; gap: 3px; }
+.account-quantity button { display: grid; place-items: center; min-width: 40px; min-height: 44px; }
+.account-quantity span { min-width: 18px; text-align: center; font-size: 13px; }
+.account-quantity button:last-child { margin-left: auto; }
+.account-delivery { margin-top: 30px; }
+.account-delivery h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
+.account-text-button { display: flex; align-items: center; gap: 10px; min-height: 48px; color: var(--pink); font-size: 13px; }
+.account-delivery form { margin: 10px 0 25px; }
+.account-checkout { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin: 20px 0 8px; padding-top: 18px; border-top: 1px solid var(--account-rule); }
+.account-checkout small { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.account-checkout strong { font-size: 21px; font-variant-numeric: tabular-nums; }
+.account-order { margin-top: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--account-rule); }
+.account-order-top, .account-order-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.account-order-top small { color: var(--muted); font-size: 11px; }
+.account-order-top b { color: var(--pink); font-size: 12px; }
+.account-order-item { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+.account-order-item img { width: 65px; height: 65px; object-fit: contain; border-radius: 12px; background: var(--glass-card); }
+.account-order-item b { display: block; font-size: 13px; line-height: 1.6; }
+.account-order-item small { color: var(--muted); display: block; font-size: 11px; margin-top: 4px; }
+.account-order-address { font-size: 11px; color: var(--muted); line-height: 1.8; margin: 14px 0; overflow-wrap: anywhere; }
+.account-order-bottom .outline-button { min-height: 44px; padding: 9px 14px; font-size: 12px; }
+@media(max-width:360px) { .account-cart-row { grid-template-columns: 18px 60px minmax(0,1fr); gap: 7px; } .account-cart-row img { width: 60px; } .account-checkout { flex-wrap: wrap; } }
+@media(prefers-reduced-motion:reduce) { .account-tabs button::after { transition: none; } }

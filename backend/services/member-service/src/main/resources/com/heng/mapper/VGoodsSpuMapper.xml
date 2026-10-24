@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VGoodsSpuMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VGoodsSpu">
+            <id property="spuId" column="spu_id" />
+            <result property="categoryId" column="category_id" />
+            <result property="name" column="name" />
+            <result property="subtitle" column="subtitle" />
+            <result property="mainImageUrl" column="main_image_url" />
+            <result property="imageUrls" column="image_urls" typeHandler="com.heng.support.JsonTypeHandler" />
+            <result property="description" column="description" />
+            <result property="videoUrl" column="video_url" />
+            <result property="minPriceFen" column="min_price_fen" />
+            <result property="originalPriceFen" column="original_price_fen" />
+            <result property="salesCount" column="sales_count" />
+            <result property="totalStock" column="total_stock" />
+            <result property="onSale" column="on_sale" />
+            <result property="isHot" column="is_hot" />
+            <result property="isNew" column="is_new" />
+            <result property="sort" column="sort" />
+            <result property="delFlag" column="del_flag" />
+            <result property="createBy" column="create_by" />
+            <result property="createTime" column="create_time" />
+            <result property="updateBy" column="update_by" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        spu_id,category_id,name,subtitle,main_image_url,image_urls,
+        description,video_url,min_price_fen,original_price_fen,sales_count,
+        total_stock,on_sale,is_hot,is_new,sort,
+        del_flag,create_by,create_time,update_by,update_time
+    </sql>
+</mapper>

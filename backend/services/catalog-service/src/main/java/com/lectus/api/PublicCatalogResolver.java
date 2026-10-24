@@ -1,0 +1,1 @@
+package com.lectus.api; @org.springframework.stereotype.Component class PublicCatalogResolver implements SessionUserResolver { public Contracts.User authenticate(String token){return null;} }

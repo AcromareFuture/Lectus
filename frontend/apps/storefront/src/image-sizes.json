@@ -1,0 +1,177 @@
+{
+  "backpack": {
+    "width": 853,
+    "height": 1280,
+    "smallWidth": 427
+  },
+  "beauty": {
+    "width": 853,
+    "height": 1280,
+    "smallWidth": 427
+  },
+  "boots": {
+    "width": 853,
+    "height": 1280,
+    "smallWidth": 427
+  },
+  "bottle": {
+    "width": 853,
+    "height": 1280,
+    "smallWidth": 427
+  },
+  "city": {
+    "width": 900,
+    "height": 600,
+    "smallWidth": 480
+  },
+  "fashion": {
+    "width": 900,
+    "height": 600,
+    "smallWidth": 480
+  },
+  "forest": {
+    "width": 960,
+    "height": 640,
+    "smallWidth": 480
+  },
+  "headphones": {
+    "width": 900,
+    "height": 604,
+    "smallWidth": 480
+  },
+  "hiker": {
+    "width": 960,
+    "height": 640,
+    "smallWidth": 480
+  },
+  "jacket": {
+    "width": 960,
+    "height": 1280,
+    "smallWidth": 480
+  },
+  "mountain": {
+    "width": 960,
+    "height": 640,
+    "smallWidth": 480
+  },
+  "shoe": {
+    "width": 900,
+    "height": 643,
+    "smallWidth": 480
+  },
+  "sneaker": {
+    "width": 900,
+    "height": 600,
+    "smallWidth": 480
+  },
+  "tent": {
+    "width": 900,
+    "height": 600,
+    "smallWidth": 480
+  },
+  "watch": {
+    "width": 855,
+    "height": 1280,
+    "smallWidth": 427
+  },
+  "product-kobe": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-asics": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-samba": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-jordan": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-nb9060": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-macbook": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-shirt-blue": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-ck-one": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-dunk": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-nb550": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-converse": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-ugg": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-matebook": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-shirt-red": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-shirt-floral": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-shirt-green": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-watch-brown": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-watch-rolex": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-chanel": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  },
+  "product-dior": {
+    "width": 1200,
+    "height": 1200,
+    "smallWidth": 480
+  }
+}

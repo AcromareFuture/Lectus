@@ -1,0 +1,30 @@
+# Explicit local-only profile. Authentication is the existing C implementation.
+# The embedded database keeps Lectus trials separate from Viridac business data.
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/member-service;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000
+    driver-class-name: org.h2.Driver
+    username: lectus
+    password: ${VIRIDAC_DB_PASSWORD:}
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:lectus-local-schema.sql
+lectus:
+  mall:
+    local-enabled: true
+    bootstrap-password: ${LECTUS_MALL_BOOTSTRAP_PASSWORD:Lectus@2026}
+  demo:
+    enabled: true
+viridac:
+  web:
+    allowed-origins: ${VIRIDAC_ALLOWED_ORIGINS:http://localhost:4206,http://127.0.0.1:4206,http://localhost:4207,http://127.0.0.1:4207,http://localhost:4208,http://127.0.0.1:4208}
+  trade:
+    order-timeout-task-enabled: false
+    sandbox-payment-enabled: false
+    allow-dev-deposit: false
+  aftersales:
+    worker-enabled: false
+
+spring.flyway.enabled: false
+viridac.upload-directory: ./data/uploads

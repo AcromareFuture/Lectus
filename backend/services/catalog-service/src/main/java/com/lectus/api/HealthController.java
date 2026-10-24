@@ -1,0 +1,1 @@
+package com.lectus.api; @org.springframework.web.bind.annotation.RestController class HealthController { @org.springframework.web.bind.annotation.GetMapping("/api/health") java.util.Map<String,String> health(){return java.util.Map.of("status","UP","service","catalog-service");} }

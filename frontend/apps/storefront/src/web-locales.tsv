@@ -1,0 +1,301 @@
+# Chinese<TAB>English<TAB>Japanese — responsive storefront and member flows.
+请妥善保管密码，勿与他人共享账号。	Keep your password safe and do not share your account.	パスワードを大切に保管し、アカウントを他の人と共有しないでください。
+登录，收好你的喜欢与每一次选择。	Sign in to keep your favorites and every choice together.	ログインして、好きなものと選んだものをひとつの場所に。
+登录 / 注册	Sign in / Register	ログイン・新規登録
+正在读取个人资料…	Loading your profile…	プロフィールを読み込み中…
+手机号已验证	Phone verified	電話番号認証済み
+已登录	Signed in	ログイン済み
+未绑定手机号	No phone linked	電話番号未登録
+请填写昵称。	Enter a display name.	表示名を入力してください。
+让每一次心动，都有迹可循。	Keep every favorite within reach.	お気に入りを、いつでも手元に。
+登录后管理个人资料	Sign in to manage your profile	ログインしてプロフィールを管理
+账户快捷入口	Account shortcuts	アカウントのショートカット
+语言与设置	Language & settings	言語・設定
+账号安全	Account security	アカウントのセキュリティ
+正在退出…	Signing out…	ログアウト中…
+查看你的选择，接着上一次的喜欢。	Keep track of your choices and pick up where you left off.	選んだものを確認して、前回の続きから。
+刷新订单	Refresh orders	注文を更新
+订单状态	Order status	注文状況
+已关闭	Closed	終了
+已过期	Expired	期限切れ
+你的每一次选择，都在这里	Every choice, in one place	選んだものを、ひとつの場所に
+登录后查看订单，继续未完成的扫码体验。	Sign in to view orders and continue your QR experience.	ログインして注文を確認し、スキャン体験を続けましょう。
+登录查看订单	Sign in to view orders	ログインして注文を見る
+订单暂时无法读取	Orders couldn’t be loaded	注文を読み込めませんでした
+还没有订单，去发现一点喜欢	No orders yet. Find your next favorite.	注文はまだありません。お気に入りを見つけましょう。
+这个分类下还没有订单	No orders in this category	この分類の注文はまだありません
+从一双好鞋，到日常的每一份心动。	From a great pair of shoes to everyday favorites.	一足の靴から、日常のお気に入りまで。
+订单号	Order number	注文番号
+体验订单	Experience order	体験注文
+体验完成	Experience complete	体験が完了しました
+扫码体验不产生实际扣款或配送。	The QR experience involves no charge or delivery.	スキャン体験に実際の課金・配送はありません。
+参考价	Reference price	参考価格
+商品信息	Product information	商品情報
+暂无报价	Price unavailable	価格未定
+探索品牌	Explore brands	ブランドを探す
+从品牌，找到你的风格	Find your style, brand by brand	ブランドから、自分のスタイルを
+经典的轮廓，也有新的表达。	Classic shapes. A fresh perspective.	定番のシルエットに、新しい表現を。
+从经典出发，	Start with a classic,	定番から、
+走出自己的日常。	make your everyday your own.	自分らしい日常へ。
+探索 adidas	Explore adidas	adidas を探す
+adidas Samba 鞋履	adidas Samba shoes	adidas Samba シューズ
+城市与山野，	From city streets to mountain trails,	街から山まで、
+都可以是你的主场。	find your place anywhere.	どこでも自分らしく。
+{count} 件好物 · 持续探索	{count} products · Keep exploring	商品 {count} 件・もっと探す
+为喜欢留个位置，下次再来看。	Save your favorites to revisit later.	好きなものを保存して、また見に来よう。
+喜欢这件好物？先收进心动清单，也可以体验扫码流程。体验不扣款、不配送。	Love this item? Save it or try the QR experience, with no charge or delivery.	気になる商品はお気に入りに。課金・配送なしのスキャン体験もできます。
+拖动旋转，放大查看细节。AI 生成的模型仅供外观参考。	Drag to rotate and zoom into details. This AI model is for visual reference only.	ドラッグして回転・拡大。AI 生成モデルは外観の参考用です。
+扫码体验	Try QR scanning	スキャンを体験
+让每一次选择，更合心意。	Make every choice feel right.	一つひとつの選択を、もっと自分らしく。
+商品规格	Product options	商品仕様
+暂时无法查看这笔订单	This order is currently unavailable	この注文は現在表示できません
+这件商品暂不支持扫码体验	QR experience is unavailable for this item	この商品はスキャン体験に対応していません
+扫码体验 · 本次不扣款	QR experience · No charge	スキャン体験・課金なし
+1 件 · 扫码体验	1 item · QR experience	1 点・スキャン体験
+扫码打开页面，即可完成体验。本次不会产生实际扣款或配送。	Scan to open the page and complete the experience. No charge or delivery.	スキャンしてページを開くと体験が完了します。実際の課金・配送はありません。
+支付方式	Payment method	決済方法
+生成体验码	Create QR code	体験コードを生成
+{method}扫码体验二维码	{method} QR experience code	{method} スキャン体験 QR コード
+体验记录已保存，可在个人页查看。本次没有扣款。	Your experience is saved to your account. No charge was made.	体験記録をマイページに保存しました。課金はありません。
+可以回到商品页，重新开始扫码体验。	Return to the product to start a new QR experience.	商品ページに戻って、スキャン体験をやり直せます。
+查看我的订单	View my orders	注文を見る
+请返回订单页面，重新生成体验码。	Return to the order page and create a new QR code.	注文ページに戻り、体験コードを再生成してください。
+体验尚未完成	Experience incomplete	体験は完了していません
+正在完成扫码体验…	Completing your QR experience…	スキャン体験を処理中…
+本次体验没有实际扣款或配送。	No charge or delivery is involved in this experience.	本体験に実際の課金・配送はありません。
+验证码 5 分钟内有效，请勿向他人透露。	Your code is valid for 5 minutes. Do not share it.	認証コードは 5 分間有効です。他の人に教えないでください。
+短信登录暂不可用，请使用账号密码登录。	SMS sign-in is unavailable. Use your account and password.	SMS ログインを利用できません。アカウントとパスワードをご利用ください。
+选择扫码方式	Choose a scanning app	スキャン方法を選択
+选择常用的扫码方式，继续体验。	Choose your preferred app to continue.	使い慣れたアプリを選んで、体験を続けてください。
+AI 生成的模型仅供外观参考，不支持虚拟试穿。	AI model for visual reference only. Virtual try-on is unavailable.	AI モデルは外観の参考用です。バーチャル試着には対応していません。
+请检查网络连接，或更新浏览器后重试。	Check your connection or update your browser and try again.	ネットワークを確認するか、ブラウザーを更新して再度お試しください。
+未找到这笔订单，请返回订单列表。	Order not found. Return to your order list.	注文が見つかりません。注文一覧に戻ってください。
+这件商品暂不支持扫码体验。	QR experience is unavailable for this item.	この商品はスキャン体験に対応していません。
+请先完成或取消待扫码的订单。	Complete or cancel your pending orders first.	スキャン待ちの注文を完了するか、キャンセルしてください。
+设置	Settings	設定
+个人设置	Settings	設定
+选择你习惯的语言，切换后立即生效。	Choose your preferred language. Changes apply immediately.	使いやすい言語を選んでください。すぐに反映されます。
+使用浏览器的首选语言	Use your browser’s preferred language	ブラウザーの優先言語を使う
+商品名称和个人资料保留原文。	Product names and personal details stay in their original language.	商品名と個人情報は原文のまま表示されます。
+语言已切换；浏览器未允许保存，下次打开需重新选择。	Language changed. Your browser could not save it; choose again next time.	言語を変更しました。ブラウザーに保存できないため、次回は再度選択してください。
+商品图片暂不可用	Product image unavailable	商品画像を表示できません
+预览价	Preview price	プレビュー価格
+· 人民币	· CNY	· 人民元
+商品资料预览	Catalog preview	商品情報のプレビュー
+好物，自有主场	Good finds, your way	お気に入りを、あなたらしく
+Lectus 莱择首页	Lectus home	Lectus ホーム
+发现好物	Discover products	商品を探す
+探索店铺	Explore shops	ショップを探す
+心动清单	Wishlist	お気に入り
+搜索品牌或商品	Search brands or products	ブランド・商品を検索
+搜索品牌、商品、灵感	Search brands, products, inspiration	ブランド・商品・ヒントを検索
+提交搜索	Search	検索する
+个人页	My account	マイページ
+银白色	Silver white	シルバーホワイト
+道奇蓝	Dodger blue	ドジャーブルー
+本期风格精选	This season’s style edit	今季のスタイル特集
+喜欢的，	What you love	好きなものに、
+就有	belongs	あなたの
+主场。	here.	居場所を。
+不跟随每一种流行。	You don’t have to follow every trend.	すべての流行を追う必要はない。
+从一双好鞋开始，发现自己的日常。	Start with a great pair. Find your everyday.	一足の靴から、自分らしい日常を。
+探索你喜欢的商品	Find products you love	好きな商品を探す
+搜索品牌或商品，发现下一份喜欢	Search for your next favorite	次のお気に入りを検索
+开始探索	Explore	探してみる
+从这里开始	Start here	ここから始める
+切换精选鞋款	Choose a featured shoe	注目のシューズを選ぶ
+城市有自己的节奏	Find your city rhythm	街には、街のリズムがある
+街头鞋履 · 日常穿搭	Streetwear shoes · Everyday style	ストリートシューズ・日常のスタイル
+向户外，多走一步	Take a step outdoors	アウトドアへ、もう一歩
+探索 Salomon	Explore Salomon	Salomon を探す
+给日常一点新意	A fresh take on everyday	日常に、新しい発見を
+数码 · 灵感好物	Tech · Inspired finds	デジタル・暮らしのヒント
+今天，想去哪里？	Where to today?	今日は、どこへ？
+从生活的一个片刻，找到下一份喜欢。	Find your next favorite in an everyday moment.	日常のひとときから、次のお気に入りを。
+随心逛逛	Browse at your pace	気ままに探す
+从一双好鞋开始	Start with a great pair	一足の靴から始めよう
+看轮廓，也看细节。有 3D 标签的款式，可以直接旋转查看。	See the shape and the details. Rotate styles marked 3D.	シルエットも、細部も。3D マークの商品は回転して確認できます。
+全部鞋履	All shoes	すべてのシューズ
+生活	Lifestyle	ライフスタイル
+按你的喜好，慢慢发现。	Discover at your own pace.	自分のペースで、好きなものを。
+取消收藏	Remove from wishlist	お気に入りから削除
+返回图片	Back to photos	写真に戻る
+查看3D	View in 3D	3D で見る
+3D 看细节	Explore in 3D	3D で細部を見る
+正在加载收藏	Loading wishlist	お気に入りを読み込み中
+还没有收藏的好物	Your wishlist is empty	お気に入りはまだありません
+点击商品上的爱心，把喜欢留在这里。	Tap the heart on a product to save it here.	商品のハートを押して、ここに保存しましょう。
+浏览全部好物	Browse all products	すべての商品を見る
+你的心动清单	Your wishlist	あなたのお気に入り
+为喜欢留个位置。收藏保存在当前浏览器。	Make room for favorites. Your wishlist is saved in this browser.	好きなものの居場所を。お気に入りはこのブラウザーに保存されます。
+不必追逐所有流行，选你真正喜欢的。	Choose what you love, beyond the trends.	流行よりも、自分の好きなものを。
+全部好物	All products	すべての商品
+好物暂时还在路上	Products couldn’t be loaded	商品を読み込めませんでした
+暂时没有找到相关好物	No matching products	該当する商品がありません
+试试其他关键词，或浏览全部分类。	Try another search or browse all categories.	別のキーワードで検索するか、すべてのカテゴリーをご覧ください。
+共	Total	全
+件 · 第	items · Page	件・ページ
+页	pages	ページ
+上一页	Previous page	前のページ
+下一页	Next page	次のページ
+好店，也值得遇见	Find your kind of shop	お気に入りのショップに出会う
+平台自营与独立商家的店铺展示构想。	A preview of our own store and independent shops.	直営店と独立ショップの展示イメージです。
+店铺布局示意	Shop layout preview	ショップのレイアウト見本
+莱择自营	Lectus store	Lectus 直営店
+从一双好鞋开始，	Start with a great pair,	一足の靴から、
+把喜欢带进日常。	bring what you love into everyday life.	好きなものを日常へ。
+平台自营店 · 筹备中	Our store · Coming soon	直営店・準備中
+自营店展示构想：adidas Samba 鞋履	Store preview: adidas Samba shoes	直営店イメージ：adidas Samba
+户外徒步生活灵感	Outdoor hiking inspiration	アウトドア・ハイキングのヒント
+独立店铺 · 示例	Independent shop · Example	独立ショップ・サンプル
+下一家同频好店，	Your next favorite shop,	次のお気に入りのショップに、
+在这里遇见。	waiting to be discovered.	ここで出会おう。
+商家入驻后，在这里展示自己的店铺与精选商品。	Merchants will showcase their shops and selected products here.	出店後はこちらにショップと厳選商品が表示されます。
+店铺名称、经营主体与商品归属尚未配置；此区域仅用于预览平台自营与入驻商家的展示方式。	Shop names, operators and product ownership are not configured yet. This area previews store layouts.	店舗名、運営者、商品の所属は未設定です。このエリアは店舗の表示プレビューです。
+没有找到这件商品	Product not found	商品が見つかりません
+回到商品列表	Back to products	商品一覧に戻る
+正在打开这件好物…	Loading product…	商品を読み込み中…
+这件商品暂时无法查看	This product is currently unavailable	この商品は現在表示できません
+返回首页精选	Back to featured products	ホームの特集に戻る
+返回商品列表	Back to products	商品一覧に戻る
+商品展示方式	Product view	商品の表示方法
+商品图片	Photos	商品写真
+查看配色	View colors	カラーを見る
+换个角度，看见喜欢	A new angle on your favorites	違う角度から、好きなものを
+点击图片上方的 3D 标签，旋转、缩放查看。模型由 AI 生成，仅供外观参考，不支持上脚试穿。	Select 3D above the image to rotate and zoom. This AI model is a visual approximation; virtual try-on is unavailable.	画像上部の 3D から回転・拡大できます。AI 生成モデルは外観の参考用で、試着には対応していません。
+当前可体验模拟下单与扫码支付，不扣款、不发货。尺码与库存尚待确认。	Try a simulated order and QR payment. No charge or shipping. Sizes and stock are not confirmed.	注文と QR 決済のデモを体験できます。課金・発送はありません。サイズと在庫は未確認です。
+AI 模型仅供外观参考。	AI model for visual reference only.	AI モデルは外観の参考用です。
+模拟购买	Try demo checkout	購入デモを体験
+已收藏 · 取消收藏	Saved · Remove	保存済み・削除する
+收藏这件好物	Save to wishlist	お気に入りに追加
+可查看规格	Available variants	表示可能な仕様
+项	variants	種類
+让喜欢，成为日常。	Make what you love your everyday.	好きなものを、日常に。
+发现莱择	Discover Lectus	Lectus を知る
+鞋履精选	Shoe edit	シューズ特集
+你的主场	Your space	あなたの居場所
+日常穿搭	Everyday style	日常のコーデ
+扫码支付体验已开放 · 仅限模拟订单	QR payment demo · Simulated orders only	QR 決済デモ・模擬注文のみ
+回到顶部	Back to top	ページ上部へ
+少一点将就，多一点喜欢。	Less settling. More of what you love.	妥協を減らして、好きを増やす。
+跳到主要内容	Skip to main content	メインコンテンツへ
+待扫码	Awaiting scan	スキャン待ち
+模拟支付成功	Demo payment complete	模擬決済が完了しました
+二维码已过期	QR code expired	QR コードの有効期限が切れました
+微信支付	WeChat Pay	WeChat Pay
+支付宝	Alipay	Alipay
+请输入有效的 11 位中国大陆手机号。	Enter a valid 11-digit mainland China mobile number.	中国本土の有効な 11 桁の携帯電話番号を入力してください。
+验证码已发送，5 分钟内有效。	Code sent. It is valid for 5 minutes.	認証コードを送信しました。5 分間有効です。
+请先为当前手机号获取验证码。	Request a code for this phone number first.	先にこの電話番号の認証コードを取得してください。
+密码已设置。可使用短信登录，或使用个人页中的账号和新密码登录。	Password saved. Sign in by SMS or use your account name and new password.	パスワードを設定しました。SMS、またはアカウント名と新しいパスワードでログインできます。
+继续逛好物	Keep exploring	商品を探し続ける
+喜欢的日常，	Your everyday favorites,	お気に入りの日常を、
+从这里接着。	all start here.	ここから続けよう。
+登录莱择，收好你的心动，	Sign in to keep your favorites	Lectus にログインして、好きなものと
+也留住每一次选择。	and every choice in one place.	選んだものを、ひとつの場所に。
+看看心动清单	View wishlist	お気に入りを見る
+设置 / 重置密码	Set / reset password	パスワード設定・再設定
+注册莱择账号	Create a Lectus account	Lectus アカウントを作成
+欢迎回来	Welcome back	おかえりなさい
+登录方式	Sign-in method	ログイン方法
+手机验证码	SMS code	SMS 認証コード
+账号密码	Account & password	アカウント・パスワード
+短信验证码	SMS verification code	SMS 認証コード
+6 位验证码	6-digit code	6 桁の認証コード
+发送中…	Sending…	送信中…
+获取验证码	Send code	コードを取得
+短信服务尚未配置完成，可先使用账号密码登录。	SMS is not configured yet. Sign in with your account and password.	SMS は未設定です。アカウントとパスワードでログインできます。
+账号	Account	アカウント
+3–50 位字母、数字或下划线	3–50 letters, numbers or underscores	英数字またはアンダースコアで 3〜50 文字
+输入登录账号	Enter your account name	アカウント名を入力
+至少 8 位密码	At least 8 characters	8 文字以上
+输入登录密码	Enter your password	パスワードを入力
+选填	Optional	任意
+怎么称呼你	What should we call you?	お名前を教えてください
+新密码	New password	新しいパスワード
+正在处理…	Processing…	処理中…
+保存新密码	Save new password	新しいパスワードを保存
+已有账号？去登录	Have an account? Sign in	アカウントをお持ちですか？ログイン
+还没有账号？去注册	New here? Create an account	初めてですか？アカウントを作成
+设置 / 找回密码	Set / recover password	パスワード設定・再発行
+手机登录与注册使用真实短信验证码。	Phone sign-in and registration use real SMS codes.	電話番号でのログインと登録には実際の SMS 認証コードを使用します。
+登录，回到你的主场	Sign in to your space	ログインして、自分の居場所へ
+使用手机验证码或已有账号密码登录。	Use an SMS code or your account and password.	SMS コード、またはアカウントとパスワードでログインできます。
+去登录	Sign in	ログインする
+昵称已保存。	Display name saved.	表示名を保存しました。
+正在打开你的主场…	Loading your account…	マイページを読み込み中…
+账户暂时无法打开	Your account is currently unavailable	アカウントを表示できません
+，欢迎回来	, welcome back	さん、おかえりなさい
+你的喜欢，你的日常。	Your favorites. Your everyday.	あなたの好きなもの、あなたの日常。
+个人资料	Profile	プロフィール
+登录账号	Account name	アカウント名
+尚未绑定	Not linked	未登録
+已验证	Verified	認証済み
+正在保存…	Saving…	保存中…
+保存昵称	Save display name	表示名を保存
+我的模拟订单	My demo orders	模擬注文一覧
+仅用于体验扫码流程，不会扣款或发货。	QR payment demo only. No charge or shipping.	QR 決済フローのデモです。課金・発送はありません。
+刷新模拟订单	Refresh demo orders	模擬注文を更新
+重新读取订单	Reload orders	注文を再読み込み
+正在读取订单…	Loading orders…	注文を読み込み中…
+还没有模拟订单	No demo orders yet	模擬注文はまだありません
+挑一件喜欢的，体验一下扫码支付。	Pick a favorite and try QR payment.	好きな商品を選んで、QR 決済を体験しましょう。
+去逛好物	Explore products	商品を探す
+继续扫码	Continue payment	スキャンを続ける
+二维码生成失败，请刷新后重试。	Couldn’t create the QR code. Refresh and try again.	QR コードを生成できませんでした。更新して再度お試しください。
+正在读取模拟订单…	Loading demo order…	模擬注文を読み込み中…
+模拟订单暂时无法打开	Demo order is currently unavailable	模擬注文を表示できません
+该商品暂不能模拟购买	Demo checkout is unavailable for this item	この商品は購入デモに対応していません
+返回个人页	Back to account	マイページに戻る
+把喜欢带回日常	Bring your favorites home	好きなものを日常へ
+模拟订单 · 不产生实际扣款	Demo order · No actual charge	模擬注文・実際の課金はありません
+正在读取商品…	Loading product…	商品を読み込み中…
+1 件 · 模拟展示规格	1 item · Demo variant	1 点・デモ仕様
+扫码打开页面后，订单会自动标记为模拟已支付。此流程用于体验，不扣款、不发货。	Opening the QR link automatically marks this demo order as paid. No charge or shipping.	QR リンクを開くと模擬決済が自動で完了します。体験用で、課金・発送はありません。
+模拟订单号	Demo order number	模擬注文番号
+创建时间	Created	作成日時
+选择支付方式	Choose a payment method	決済方法を選択
+模拟支付方式	Demo payment method	模擬決済方法
+生成二维码后，使用手机扫码体验。	Create a QR code, then scan it with your phone.	QR コードを生成し、スマートフォンでスキャンしてください。
+正在生成…	Creating…	生成中…
+生成模拟付款码	Create demo payment code	模擬決済コードを生成
+正在更新订单状态…	Updating order status…	注文状況を更新中…
+正在生成二维码…	Creating QR code…	QR コードを生成中…
+使用	Scan with	次のアプリで
+扫一扫	to continue	スキャン
+手机与电脑需连接同一 Wi-Fi。	Connect your phone and computer to the same Wi-Fi.	スマートフォンとパソコンを同じ Wi-Fi に接続してください。
+取消模拟订单	Cancel demo order	模擬注文をキャンセル
+这一次喜欢，已记录在你的个人页。没有实际扣款。	Saved to your account. No actual charge was made.	マイページに記録しました。実際の課金はありません。
+可以重新选择商品，生成新的模拟付款码。	Choose a product to create a new demo payment code.	商品を選んで、新しい模擬決済コードを生成できます。
+查看我的模拟订单	View my demo orders	模擬注文を見る
+回到商品	Back to product	商品に戻る
+二维码无效，请扫描电脑上显示的最新二维码。	Invalid QR code. Scan the latest code on your computer.	無効な QR コードです。パソコンの最新コードをスキャンしてください。
+电脑端订单会自动更新。	The order on your computer updates automatically.	パソコンの注文状況は自動で更新されます。
+本次为模拟支付，没有实际扣款。	This is a simulated payment. No actual charge.	模擬決済です。実際の課金はありません。
+请回到电脑端重新生成模拟付款码。	Create a new demo payment code on your computer.	パソコンで模擬決済コードを再生成してください。
+暂未完成模拟支付	Demo payment incomplete	模擬決済は完了していません
+重新尝试	Try again	もう一度試す
+正在完成模拟支付…	Completing demo payment…	模擬決済を処理中…
+请稍候，完成后电脑端会自动更新。	Please wait. Your computer updates when complete.	しばらくお待ちください。完了するとパソコンに反映されます。
+暂时连接不上账户服务，请稍后重试。	Can’t connect to your account. Please try again shortly.	アカウントサービスに接続できません。しばらくしてから再度お試しください。
+登录已失效，请重新登录。	Your session expired. Please sign in again.	ログインの有効期限が切れました。再度ログインしてください。
+服务暂时不可用，请稍后重试。	Service unavailable. Please try again shortly.	サービスを利用できません。しばらくしてから再度お試しください。
+把热爱，穿上场。	Wear your passion on court.	好きなものと、コートへ。
+经典，自有新意。	A fresh take on a classic.	定番に、新しさを。
+我的收藏，{count} 件	My wishlist, {count} items	お気に入り、{count} 件
+查看 {name}	View {name}	{name} を見る
+探索 {name}	Explore {name}	{name} を探す
+展示 {name}	Show {name}	{name} を表示
+收藏 {name}	Save {name}	{name} を保存
+取消收藏 {name}	Remove {name} from wishlist	{name} をお気に入りから削除
+返回图片 {name}	Show photos of {name}	{name} の写真を表示
+查看3D {name}	View {name} in 3D	{name} を 3D で表示
+{count} 款配色	{count} colors	{count} 色
+{count} 种配色	{count} colors	{count} 色
+{count} 件收藏	{count} saved items	お気に入り {count} 件
+{count} 件商品资料 · 持续探索	{count} catalog items · Keep exploring	商品情報 {count} 件・もっと探す
+关于「{query}」	Results for “{query}”	「{query}」の検索結果
+查看图片 {number}	View image {number}	画像 {number} を見る
+{seconds} 秒后重发	Resend in {seconds}s	{seconds} 秒後に再送
+{method}模拟付款二维码	{method} demo payment QR code	{method} 模擬決済 QR コード
+{time} 内有效 · 扫码打开后自动完成	Valid for {time} · Opens and completes automatically	有効時間 {time}・スキャンして開くと自動完了

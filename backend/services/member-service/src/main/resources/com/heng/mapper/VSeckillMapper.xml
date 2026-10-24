@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VSeckillMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VSeckill">
+            <id property="seckillId" column="seckill_id" />
+            <result property="spuId" column="spu_id" />
+            <result property="skuId" column="sku_id" />
+            <result property="name" column="name" />
+            <result property="priceFen" column="price_fen" />
+            <result property="stock" column="stock" />
+            <result property="soldCount" column="sold_count" />
+            <result property="limitNum" column="limit_num" />
+            <result property="startTime" column="start_time" />
+            <result property="endTime" column="end_time" />
+            <result property="status" column="status" />
+            <result property="createBy" column="create_by" />
+            <result property="createTime" column="create_time" />
+            <result property="updateBy" column="update_by" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        seckill_id,spu_id,sku_id,name,price_fen,stock,
+        sold_count,limit_num,start_time,end_time,status,
+        create_by,create_time,update_by,update_time
+    </sql>
+</mapper>

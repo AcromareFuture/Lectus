@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VOrderItemMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VOrderItem">
+            <id property="itemId" column="item_id" />
+            <result property="orderId" column="order_id" />
+            <result property="quantity" column="quantity" />
+            <result property="unitPriceFen" column="unit_price_fen" />
+            <result property="subtotalFen" column="subtotal_fen" />
+            <result property="goodsSnapshot" column="goods_snapshot" typeHandler="com.heng.support.JsonTypeHandler" />
+            <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        item_id,order_id,quantity,unit_price_fen,subtotal_fen,goods_snapshot,
+        create_time
+    </sql>
+</mapper>

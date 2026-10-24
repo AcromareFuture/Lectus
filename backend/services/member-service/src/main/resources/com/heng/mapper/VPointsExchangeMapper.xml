@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.mapper.VPointsExchangeMapper">
+
+    <resultMap id="BaseResultMap" type="com.heng.domain.VPointsExchange">
+            <id property="exchangeId" column="exchange_id" />
+            <result property="exchangeNo" column="exchange_no" />
+            <result property="memberId" column="member_id" />
+            <result property="itemId" column="item_id" />
+            <result property="pointsUsed" column="points_used" />
+            <result property="quantity" column="quantity" />
+            <result property="status" column="status" />
+            <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        exchange_id,exchange_no,member_id,item_id,points_used,quantity,
+        status,create_time
+    </sql>
+</mapper>

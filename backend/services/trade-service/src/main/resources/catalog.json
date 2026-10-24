@@ -1,0 +1,446 @@
+[
+  {
+    "id": "wp-kobe",
+    "name": "Nike Kobe 5 Protro Dodgers",
+    "en": "NIKE / THE PRODUCT EDIT",
+    "brand": "NIKE",
+    "category": "鞋履",
+    "price": 1499,
+    "image": "product-kobe",
+    "tag": "本期主角",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "道奇蓝"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-asics",
+    "name": "ASICS GEL-1130 白银",
+    "en": "ASICS / THE PRODUCT EDIT",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "price": 699,
+    "image": "product-asics",
+    "tag": "复古跑鞋",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "白银"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-samba",
+    "name": "adidas Samba OG 白黑",
+    "en": "ADIDAS / THE PRODUCT EDIT",
+    "brand": "ADIDAS",
+    "category": "鞋履",
+    "price": 799,
+    "image": "product-samba",
+    "tag": "经典轮廓",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "白黑"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-jordan",
+    "name": "Air Jordan 4 Bred Reimagined",
+    "en": "JORDAN / THE PRODUCT EDIT",
+    "brand": "JORDAN",
+    "category": "鞋履",
+    "price": 1399,
+    "image": "product-jordan",
+    "tag": "篮球档案",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "黑红"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-nb9060",
+    "name": "New Balance 9060 海盐",
+    "en": "NEW BALANCE / THE PRODUCT EDIT",
+    "brand": "NEW BALANCE",
+    "category": "鞋履",
+    "price": 1099,
+    "image": "product-nb9060",
+    "tag": "日常之选",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "海盐"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-macbook",
+    "name": "Apple MacBook Pro 14 英寸",
+    "en": "APPLE / THE PRODUCT EDIT",
+    "brand": "APPLE",
+    "category": "数码",
+    "price": 9999,
+    "image": "product-macbook",
+    "tag": "随行工作室",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "深空灰"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-shirt-blue",
+    "name": "蓝黑格纹长袖衬衫",
+    "en": "SELECTED / THE PRODUCT EDIT",
+    "brand": "SELECTED",
+    "category": "服饰",
+    "price": 329,
+    "image": "product-shirt-blue",
+    "tag": "叠穿日常",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "蓝黑格纹"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-ck-one",
+    "name": "Calvin Klein CK One 香水",
+    "en": "CALVIN KLEIN / THE PRODUCT EDIT",
+    "brand": "CALVIN KLEIN",
+    "category": "香水",
+    "price": 459,
+    "image": "product-ck-one",
+    "tag": "日常气息",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "图示款"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-dunk",
+    "name": "Nike Dunk Low 黑白",
+    "en": "NIKE / THE PRODUCT EDIT",
+    "brand": "NIKE",
+    "category": "鞋履",
+    "price": 699,
+    "image": "product-dunk",
+    "tag": "百搭黑白",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "黑白"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-nb550",
+    "name": "New Balance 550 白绿",
+    "en": "NEW BALANCE / THE PRODUCT EDIT",
+    "brand": "NEW BALANCE",
+    "category": "鞋履",
+    "price": 759,
+    "image": "product-nb550",
+    "tag": "复古球场",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "白绿"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-converse",
+    "name": "Converse Chuck 70 黑色高帮",
+    "en": "CONVERSE / THE PRODUCT EDIT",
+    "brand": "CONVERSE",
+    "category": "鞋履",
+    "price": 569,
+    "image": "product-converse",
+    "tag": "帆布经典",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "黑色"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-ugg",
+    "name": "UGG Tasman 栗色",
+    "en": "UGG / THE PRODUCT EDIT",
+    "brand": "UGG",
+    "category": "鞋履",
+    "price": 899,
+    "image": "product-ugg",
+    "tag": "松弛周末",
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "栗色"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-matebook",
+    "name": "Huawei MateBook X Pro",
+    "en": "HUAWEI / THE PRODUCT EDIT",
+    "brand": "HUAWEI",
+    "category": "数码",
+    "price": 8999,
+    "image": "product-matebook",
+    "tag": "城市随行",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "图示款"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-shirt-red",
+    "name": "红黑格纹长袖衬衫",
+    "en": "SELECTED / THE PRODUCT EDIT",
+    "brand": "SELECTED",
+    "category": "服饰",
+    "price": 299,
+    "image": "product-shirt-red",
+    "tag": "秋日色彩",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "红黑格纹"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-shirt-floral",
+    "name": "蓝色花卉短袖衬衫",
+    "en": "SELECTED / THE PRODUCT EDIT",
+    "brand": "SELECTED",
+    "category": "服饰",
+    "price": 259,
+    "image": "product-shirt-floral",
+    "tag": "假日提案",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "蓝色花卉"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-shirt-green",
+    "name": "绿灰格纹长袖衬衫",
+    "en": "SELECTED / THE PRODUCT EDIT",
+    "brand": "SELECTED",
+    "category": "服饰",
+    "price": 329,
+    "image": "product-shirt-green",
+    "tag": "轻松叠穿",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "绿灰格纹"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-watch-brown",
+    "name": "棕色皮带多功能造型腕表",
+    "en": "SELECTED / THE PRODUCT EDIT",
+    "brand": "SELECTED",
+    "category": "配饰",
+    "price": 1080,
+    "image": "product-watch-brown",
+    "tag": "腕间日常",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "棕皮白盘"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-watch-rolex",
+    "name": "Rolex Submariner 腕表",
+    "en": "ROLEX / THE PRODUCT EDIT",
+    "brand": "ROLEX",
+    "category": "配饰",
+    "price": 89900,
+    "image": "product-watch-rolex",
+    "tag": "时间之物",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "图示款"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-chanel",
+    "name": "CHANEL COCO NOIR 香水",
+    "en": "CHANEL / THE PRODUCT EDIT",
+    "brand": "CHANEL",
+    "category": "香水",
+    "price": 1099,
+    "image": "product-chanel",
+    "tag": "夜色气息",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "图示款"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  },
+  {
+    "id": "wp-dior",
+    "name": "DIOR J'adore 香水",
+    "en": "DIOR / THE PRODUCT EDIT",
+    "brand": "DIOR",
+    "category": "香水",
+    "price": 899,
+    "image": "product-dior",
+    "tag": "香气之选",
+    "sizes": [
+      "图示款"
+    ],
+    "colors": [
+      "图示款"
+    ],
+    "sold": 0,
+    "description": "白底商品图选品预览。名称按所提供素材标注，价格、规格与库存为演示数据。"
+  }
+]

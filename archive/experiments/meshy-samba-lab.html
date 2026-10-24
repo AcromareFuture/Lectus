@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Lectus · Meshy 模型验收</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eff0f3;color:#20241f;font:14px/1.7 system-ui,sans-serif}main{max-width:1050px;margin:auto;padding:24px 20px 50px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}a{color:inherit;text-underline-offset:4px}h1{font-size:30px;letter-spacing:-1px;margin:28px 0 4px}p{color:#60656c}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.panel{background:#ffffffb8;border:1px solid white;border-radius:20px;overflow:hidden}.label{padding:14px 18px;font-size:12px;border-bottom:1px solid #20241f12}.stage{height:420px;position:relative}img,model-viewer{display:block;width:100%;height:100%;object-fit:contain}img{padding:22px;mix-blend-mode:multiply}model-viewer{background:radial-gradient(ellipse at bottom,#dfe6ec,transparent 65%)}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}button{font:inherit;min-height:44px;padding:7px 14px;background:#fff9;border:1px solid #d8dce1;border-radius:12px;cursor:pointer}button[aria-pressed=true]{background:#20241f;color:white}button:focus-visible,a:focus-visible{outline:2px solid #a5416e;outline-offset:3px}button:disabled{opacity:.45;cursor:wait}.state{position:absolute;inset:0;display:grid;place-content:center;color:#60656c;pointer-events:none}.state[hidden]{display:none}.foot{font-size:12px}@media(max-width:700px){h1{font-size:26px}.grid{grid-template-columns:1fr}.stage{height:340px}.panel:first-child .stage{height:230px}}
+</style>
+<main>
+<header><b>LECTUS.</b><a href="/#product?id=wp-samba&preview3d=meshy">在商品页体验 →</a></header>
+<h1>从照片，到可以转动的鞋。</h1>
+<p>adidas Samba OG 白黑 · 用户提供的 AI 生成结果</p>
+<p>生成输入视角尚未确认，模型细节需与实物核对。用于本地外观验收，尚未绑定正式商品库；不支持上脚试穿。</p>
+<div class="grid">
+<section class="panel"><div class="label">照片参考</div><div class="stage"><img src="/images/product-samba.webp" alt="白黑 Samba 原始商品照片"/></div></section>
+<section class="panel"><div class="label" id="label">手机预览 · 7.13 MiB · 128,498 三角面</div><div class="stage">
+<model-viewer id="viewer" alt="AI生成白黑Samba鞋模" camera-controls disable-pan disable-tap touch-action="pan-y" camera-orbit="-35deg 72deg 105%" min-camera-orbit="auto 5deg 55%" max-camera-orbit="auto 175deg 180%" shadow-intensity="1" exposure="1.1" environment-image="neutral" interaction-prompt="none"><div slot="progress-bar"></div></model-viewer>
+<div id="state" class="state" role="status">正在加载模型…</div></div></section>
+</div>
+<div class="controls" aria-label="模型版本"><button id="mobile" aria-pressed="true">手机预览版 · 7.13 MiB</button><button id="original" aria-pressed="false">加载原始版 · 38.33 MiB</button></div>
+<div class="controls" aria-label="检查视角"><button data-orbit="90deg 90deg 105%">侧面</button><button data-orbit="270deg 90deg 105%">另一侧</button><button data-orbit="0deg 10deg 105%">鞋口与鞋带</button><button data-orbit="0deg 170deg 105%">鞋底</button><button data-orbit="-35deg 72deg 105%">重置视角</button></div>
+<p class="foot">原件保留；手机版只做减面，2048×2048 贴图字节保持一致。模型未使用几何压缩，不需要额外下载解码器。真实手机帧率与商用授权仍待确认。</p>
+</main>
+<script type="module">
+import '@google/model-viewer';
+const viewer=document.getElementById('viewer'),state=document.getElementById('state');
+const buttons=[...document.querySelectorAll('[data-orbit]')];
+buttons.forEach(button=>{button.disabled=true;button.onclick=()=>{viewer.cameraOrbit=button.dataset.orbit;if(matchMedia('(prefers-reduced-motion: reduce)').matches)viewer.jumpCameraToGoal()}});
+viewer.addEventListener('load',()=>{state.hidden=true;buttons.forEach(button=>button.disabled=false)});
+viewer.addEventListener('error',()=>{state.hidden=false;state.textContent='模型加载失败，请刷新后重试。';buttons.forEach(button=>button.disabled=true)});
+for(const version of ['mobile','original'])document.getElementById(version).onclick=()=>{
+  if(document.getElementById(version).getAttribute('aria-pressed')==='true')return;
+  state.hidden=false;state.textContent='正在加载模型…';buttons.forEach(button=>button.disabled=true);
+  for(const id of ['mobile','original'])document.getElementById(id).setAttribute('aria-pressed',String(id===version));
+  document.getElementById('label').textContent=version==='mobile'?'手机预览 · 7.13 MiB · 128,498 三角面':'原始模型 · 38.33 MiB · 1,285,060 三角面';
+  viewer.src=`/.local/work/3d-preview/meshy-samba/${version}.glb`;
+};
+viewer.src='/.local/work/3d-preview/meshy-samba/mobile.glb';
+</script>
+</html>

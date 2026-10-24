@@ -1,0 +1,6 @@
+# 完整业务演示；虚拟余额无提现/兑换入口，不连接任何收款渠道。
+viridac:
+  trade:
+    demo-mode: true
+    allow-dev-deposit: true
+    sandbox-payment-enabled: false

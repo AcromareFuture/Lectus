@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Lectus · 3D 生成试验</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#eff0ed;color:#20241f;font:15px/1.65 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:28px 24px 60px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px}a{color:inherit;text-underline-offset:4px}.brand{font-size:24px;font-weight:850;letter-spacing:-1px}h1{font-size:clamp(28px,5vw,42px);line-height:1.2;letter-spacing:-1px;margin:12px 0}p{color:#60665c;max-width:650px}.eyebrow{font-size:12px;letter-spacing:2px;color:#77606c}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.panel{border-radius:22px;background:#ffffffb8;border:1px solid #fff;overflow:hidden;box-shadow:0 8px 30px #29342708}.label{display:flex;justify-content:space-between;padding:15px 20px;border-bottom:1px solid #26391b10;font-size:13px}.tag{color:#9c4268}.stage{height:430px;position:relative}.stage img,model-viewer{width:100%;height:100%;object-fit:contain}.stage img{mix-blend-mode:multiply;padding:24px}model-viewer{background:radial-gradient(ellipse at bottom,#e2e7df,transparent 60%)}.controls{display:flex;justify-content:center;gap:10px;padding:14px}button{font:inherit;border:1px solid #dbe0d7;background:#ffffffa8;border-radius:12px;padding:10px 16px;cursor:pointer}button:focus-visible{outline:2px solid #9c4268;outline-offset:3px}button:active{transform:scale(.96)}button:disabled{opacity:.45;cursor:wait}.state{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:25px;pointer-events:none;color:#62685d}.state[hidden]{display:none}.report{font-size:13px;color:#60665c;margin-top:20px;white-space:pre-line}.foot{font-size:12px;margin-top:28px}button,a{transition:transform .18s,background .18s}@media(max-width:700px){main{padding:22px 18px 40px}header{margin-bottom:26px}.comparison{grid-template-columns:1fr}.stage{height:340px}.comparison .panel:first-child .stage{height:240px}h1{font-size:30px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body><main>
+  <header><span class="brand">LECTUS<span style="color:#a5416e">.</span></span><a href="/#home">返回商城</a></header>
+  <span class="eyebrow">LOCAL 3D EXPERIMENT</span>
+  <h1>一张照片，能还原多少？</h1>
+  <p>Asics Gel-Kayano 14 · Lime Zest/Pure Silver</p>
+  <p>AI 生成的外观近似，仅用于检查效果。另一侧、鞋底、标志和尺寸尚未验证，请以商品照片为准；暂不支持上脚试穿。</p>
+  <div class="comparison">
+    <section class="panel"><div class="label"><b>原始商品照片</b><span>配色参考</span></div><div class="stage"><img id="reference" alt="Asics Gel-Kayano 14 Lime Zest/Pure Silver 原始商品照片"/></div></section>
+    <section class="panel"><div class="label"><b>AI 3D 预览</b><span class="tag">实验结果 · 未上架</span></div><div class="stage">
+      <model-viewer id="viewer" alt="AI 生成的 Gel-Kayano 14 外观近似" camera-controls disable-pan disable-tap touch-action="pan-y" camera-orbit="-35deg 72deg 105%" shadow-intensity="1" exposure="1.1" environment-image="neutral" interaction-prompt="none"><div slot="progress-bar"></div></model-viewer>
+      <div class="state" id="state" role="status">正在准备本地试验结果…</div>
+    </div><div class="controls"><button disabled id="rotate">另一侧</button><button disabled id="bottom">查看鞋底</button><button disabled id="reset">重置视角</button></div></section>
+  </div>
+  <p class="report" id="report"></p>
+  <p><a href="./multiview-lab.html">查看补齐照片后的多视角试验与验收结果 →</a></p>
+  <p class="foot">生成方案：<a href="https://github.com/VAST-AI-Research/TripoSR" target="_blank" rel="noreferrer">TripoSR（MIT）</a> · 本机生成，未调用收费服务。该试验不会自动替换商城商品模型。</p>
+</main>
+<script type="module">
+  import '@google/model-viewer';
+  const productId='SPU-234E824E28E2',colorId='CLR-774E8ADF3AC0';
+  const directory=`/.local/work/3d-preview/${productId}/${colorId}/`;
+  const viewer=document.getElementById('viewer'),state=document.getElementById('state');
+  const controls=[...document.querySelectorAll('button')];
+  viewer.addEventListener('load',()=>{state.hidden=true;controls.forEach(button=>button.disabled=false)});
+  viewer.addEventListener('error',()=>{state.hidden=false;state.textContent='当前还没有可查看的生成结果，或模型加载失败。';controls.forEach(button=>button.disabled=true)});
+  viewer.src=directory+'preview.glb';
+  document.getElementById('rotate').onclick=()=>{viewer.cameraOrbit=`${viewer.getCameraOrbit().theta+Math.PI}rad 72deg 105%`};
+  document.getElementById('bottom').onclick=()=>{viewer.cameraOrbit='-35deg 155deg 105%'};
+  document.getElementById('reset').onclick=()=>{viewer.cameraOrbit='-35deg 72deg 105%'};
+  const applyMotion=()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)viewer.jumpCameraToGoal()};
+  controls.forEach(button=>button.addEventListener('click',applyMotion));
+  fetch(`/api/catalog/products/${productId}`).then(response=>{if(!response.ok)throw Error();return response.json()}).then(product=>{
+    const color=product.colorways.find(item=>item.id===colorId);
+    const photo=product.images.find(item=>item.id===color.mainImageId);
+    if(photo)document.getElementById('reference').src='/api/catalog/assets/'+photo.image;
+  }).catch(()=>{document.getElementById('reference').alt='商品照片暂时无法加载，请检查本地 API'});
+  fetch(directory+'generation.json').then(response=>{if(!response.ok)throw Error();return response.json()}).then(report=>{
+    document.getElementById('report').textContent=`本次实测：${(report.bytes/1024/1024).toFixed(2)} MB · ${report.triangles.toLocaleString()} 三角面 · ${report.seconds} 秒（${report.device==='cuda'?'GPU':'CPU'}）\n拖动旋转、双指缩放，重点检查背面和鞋底。`;
+  }).catch(()=>{});
+</script></body></html>

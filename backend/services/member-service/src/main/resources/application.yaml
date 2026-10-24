@@ -1,0 +1,92 @@
+spring:
+  application:
+    name: member-service
+  profiles:
+    active: ${VIRIDAC_PROFILE:postgres}
+  datasource:
+    # 默认连接本机；部署时显式指定数据库地址。
+    # 密码只从环境变量读取，缺失时启动即失败，避免用空密码连库。
+    url: ${VIRIDAC_DB_URL:jdbc:postgresql://localhost:5432/lectus_member}
+    username: ${VIRIDAC_DB_USERNAME:lectus_member}
+    password: ${VIRIDAC_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 52MB
+      file-size-threshold: 0
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+server:
+  address: ${VIRIDAC_BIND_ADDRESS:127.0.0.1}
+  port: ${VIRIDAC_C_PORT:8081}
+  forward-headers-strategy: native
+  tomcat:
+    remoteip:
+      # 仅信任本机反向代理；外部客户端的转发头不能用于绕过短信限额。
+      internal-proxies: '127\.0\.0\.1|0:0:0:0:0:0:0:1|::1'
+  servlet:
+    context-path: /
+
+mybatis-plus:
+  mapper-locations: classpath*:com/heng/mapper/*Mapper.xml
+  type-aliases-package: com.heng.domain
+  configuration:
+    map-underscore-to-camel-case: true
+
+viridac:
+  sandbox:
+    confirm-enabled: ${VIRIDAC_SANDBOX_CONFIRM_ENABLED:false}
+  amap:
+    enabled: ${VIRIDAC_AMAP_ENABLED:false}
+    web-key: ${VIRIDAC_AMAP_WEB_KEY:}
+    js-key: ${VIRIDAC_AMAP_JS_KEY:}
+    js-proxy-enabled: ${VIRIDAC_AMAP_JS_PROXY_ENABLED:false}
+  web:
+    allowed-origins: ${VIRIDAC_ALLOWED_ORIGINS:http://localhost:4206,http://127.0.0.1:4206}
+  auth:
+    token-ttl-hours: ${VIRIDAC_TOKEN_TTL_HOURS:168}
+  sms:
+    enabled: ${VIRIDAC_SMS_ENABLED:false}
+    provider: ${VIRIDAC_SMS_PROVIDER:pnvs}
+    code-secret: ${VIRIDAC_SMS_CODE_SECRET:}
+    access-key-id: ${ALIBABA_CLOUD_ACCESS_KEY_ID:}
+    access-key-secret: ${ALIBABA_CLOUD_ACCESS_KEY_SECRET:}
+    sign-name: ${VIRIDAC_SMS_SIGN_NAME:}
+    template-code: ${VIRIDAC_SMS_TEMPLATE_CODE:}
+    scheme-prefix: ${VIRIDAC_SMS_SCHEME_PREFIX:Viridac}
+    phone-hourly-limit: ${VIRIDAC_SMS_PHONE_HOURLY_LIMIT:5}
+    phone-daily-limit: ${VIRIDAC_SMS_PHONE_DAILY_LIMIT:10}
+    ip-hourly-limit: ${VIRIDAC_SMS_IP_HOURLY_LIMIT:20}
+    daily-limit: ${VIRIDAC_SMS_DAILY_LIMIT:200}
+  trade:
+    demo-mode: ${VIRIDAC_DEMO_MODE:false}
+    order-timeout-task-enabled: ${VIRIDAC_ORDER_TIMEOUT_TASK_ENABLED:false}
+    free-shipping-threshold-fen: 3900
+    shipping-fee-fen: 600
+    order-timeout-minutes: 30
+    fen-per-point: 1
+    points-max-deduct-percent: 50
+    signin-points: 5
+    signin-consecutive-bonus-points: 5
+    payment-callback-secret: ${VIRIDAC_PAYMENT_CALLBACK_SECRET:}
+    sandbox-payment-enabled: ${VIRIDAC_SANDBOX_PAYMENT_ENABLED:false}
+    allow-dev-deposit: ${VIRIDAC_ALLOW_DEV_DEPOSIT:false}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
